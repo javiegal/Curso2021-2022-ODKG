@@ -1,2 +1,5 @@
 Your name; Your GitHub user; Dataset name; Dataset URL; Dataset brief description
 Carlos Morote García;CarlosMorote;Human Instructions - Spanish (wikiHow);https://www.kaggle.com/paolop/human-instructions-spanish-wikihow;120.507 formalised step-by-step instructions in Spanish from wikiHow
+Miguel Angel Garcia-Gutierrez Espina; miguelangel43; linkedMDB; https://triplydb.com/Triply/linkedmdb; A linked data collection of movies, actors, directors, etc. And the relationships between
+José Manuel Díaz Urraco; jmdu99; Accidentes de tráfico de la Ciudad de Madrid ; http://149.235.17.74/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0?vgnextoid=7c2843010d9c3610VgnVCM2000001f4a900aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default; Traffic accidents in the City of Madrid registered by the Municipal Police.
+Miguel Ventoso Fernández; miguelventoso; Principales marcas de whiskey en función del volumen de ventas a nivel mundial en 2020; https://es.statista.com/estadisticas/599104/mercado-del-whiskey-marcas-lideres-en-el-mundo-en-funcion-del-volumen-de-ventas/; This dataset shows the most popular brands of whiskey bought worldwide in 2020
