@@ -10,4 +10,4 @@
 
 :Computer101 :hasOwner :User10A .
 
-:User10A :hasName "Pedro" . 
+:User10A :hasName "Pedro" .
