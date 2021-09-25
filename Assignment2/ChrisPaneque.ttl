@@ -1,23 +1,21 @@
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix date: <http://contextus.net/ontology/ontomedia/misc/date#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix : <http://Entity.org/#> .
-
+@prefix pr: <http://example.org/elements/properties>.
 :Class001 
-    foaf:includes :Sensor029 ;
-    foaf:includes :Computer101 ;
+    pr:includes :Sensor029 ;
+    pr:includes :Computer101 
 .
 :Sensor029 
-    foaf:hasMeasurement :Measurement8401 ;
+    pr:hasMeasurement :Measurement8401 
 .
 
 :Measurement8401
-       rdfs:hasTemperature "29" ;
-       rdfs:atTime "2010-06-12T12:00:12" ;
+       pr:hasTemperature "29"^^xsd:integer;
+       pr:atTime "2010-06-12T12:00:12"^^xsd:dateTime
 .
 :Computer101
-    foaf:hasOwner :User10A ;
+    pr:hasOwner :User10A 
 .
 :User10A 
-   rdfs:hasName "Pedro" ;
+   pr:hasName "Pedro" 
 .
