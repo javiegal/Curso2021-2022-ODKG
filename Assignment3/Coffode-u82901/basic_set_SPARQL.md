@@ -27,7 +27,7 @@ WHERE { ?class rdf:type vocab:City.}
 [Result: # 3](http://sandbox.linkeddata.es/sparql?default-graph-uri=http%3A%2F%2Fsandbox.linkeddata.es%2FGrado_20122013&query=PREFIX+vocab%3A+%3Chttp%3A%2F%2FGP-onto.fi.upm.es%2Fexercise2%23%3E%0D%0ASELECT+%3Fclass%0D%0AWHERE+%7B+%3Fclass+rdf%3Atype+vocab%3ACity.%7D+&format=text%2Fhtml&timeout=0&debug=on)
 
 
-🔹 4.Get the number of inhabitants of Santiago de Compostela
+🔹 4.Get the number of inhabitants of Santiago de Compostela 
 
 4.1) Getting hold on predicates
 
