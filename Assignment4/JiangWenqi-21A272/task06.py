@@ -16,8 +16,12 @@ github_storage = "https://raw.githubusercontent.com/FacultadInformatica-LinkedDa
 
 g = Graph()
 g.namespace_manager.bind('ns', Namespace("http://somewhere#"), override=False)
-g.namespace_manager.bind('vcard', Namespace(
-    "http://www.w3.org/2001/vcard-rdf/3.0#"), override=False)
+g.namespace_manager.bind(
+    'vcard',
+    Namespace("http://www.w3.org/2001/vcard-rdf/3.0#"),
+    override=False
+
+)
 g.parse(github_storage+"/resources/example5.rdf", format="xml")
 
 """Create a new class named Researcher"""
@@ -61,4 +65,4 @@ g.add((ns.UPM, RDF.type, ns.University))
 g.add((ns.JaneSmith, vcard.Work, ns.UPM))
 
 for s, p, o in g:
-  print(s,p,o)
+    print(s, p, o)
