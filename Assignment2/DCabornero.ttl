@@ -7,7 +7,7 @@
 
 :Sensor029  vocab:hasMeasurement :Measurement8401 ;
             vocab:hasTemperature "29"^^xsd:decimal ;
-            vocab:atTime  "2010-06-12T12:00:12"^^xsd:date.
+            vocab:atTime  "2010-06-12T12:00:12"^^xsd:dateTime.
 
 :Computer01 vocab:hasOwner :User10A ;
 
