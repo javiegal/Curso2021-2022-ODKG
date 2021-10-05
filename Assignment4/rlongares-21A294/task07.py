@@ -110,7 +110,7 @@ WHERE {
     }
 }
 ''',
-initNs = {"ns":ns, "rdfs":RDFS, "rdf": RDF}
+initNs = {"rdf": RDF,"ns":ns, "rdfs":RDFS }
 )
 
 for r in g.query(q3):
