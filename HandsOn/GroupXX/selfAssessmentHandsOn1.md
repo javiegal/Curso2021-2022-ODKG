@@ -22,4 +22,4 @@
 - [X] Includes a description of the application user interface
 
 ## Comments on the self-assessment
-No comments
+We had problems with forking the repositories and that is why the leader uploaded all the files. 
