@@ -43,7 +43,7 @@ for i in g.query(q1):
 
 #"""**TASK 7.2: List all individuals of "Person" with RDFLib and SPARQL (remember the subClasses)**
 
-"""
+#"""
 
 for s,p,o in g.triples((None, RDF.type, ns.Person)) :
   print(s)
@@ -72,9 +72,9 @@ q2 = prepareQuery('''
 for x in g.query(q2):
   print(x)
 
-"""#**TASK 7.3: List all individuals of "Person" and all their properties including their class with RDFLib and SPARQL**
+#"""#**TASK 7.3: List all individuals of "Person" and all their properties including their class with RDFLib and SPARQL**
 
-"""
+#"""
 
 for s,p,o in g.triples((None, RDF.type, ns.Person)) :
   for s2, p2, o2 in g.triples((s, None, None)):
