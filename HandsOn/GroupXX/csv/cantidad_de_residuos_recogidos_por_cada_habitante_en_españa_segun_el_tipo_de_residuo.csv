@@ -1,0 +1,51 @@
+﻿"Año";"Periodo";"Residuos mezclados";"Residuos de papel y cartón";"Residuos de vidrio";"Envases mixtos y embalajes mezclados"
+"2010";"Año";"416,5";"31,5";"17,3";"13,8"
+"2011";"Año";"401,7";"27,1";"15,7";"14"
+"2012";"Año";"391,6";"23,2";"15,7";"13,7"
+"2013";"Año";"383,2";"21,2";"15,5";"12"
+"2014";"Año";"377,4";"21";"15,8";"12,2"
+"2015";"Año";"382,5";"21,7";"16,3";"12,8"
+"2016";"Año";"381,3";"21,7";"16,2";"12,7"
+"2017";"Año";"392,7";"22,8";"17,5";"14,2"
+"2018";"Año";"391,3";"22,9";"17,9";"15,9"
+;;;;;
+;;;;;
+"Métrica":"Residuos mezclados"
+"Fuente":"INE"
+"Clasificación":""
+"Unidad":"Kg/hab"
+"Escala":"Unidades"
+"EscalaFactorPotencia10":"0"
+"SonDatosNumericos":"True"
+;;;;;
+;;;;;
+"Métrica":"Residuos de papel y cartón"
+"Fuente":"INE"
+"Clasificación":""
+"Unidad":"Kg/hab"
+"Escala":"Unidades"
+"EscalaFactorPotencia10":"0"
+"SonDatosNumericos":"True"
+;;;;;
+;;;;;
+"Métrica":"Residuos de vidrio"
+"Fuente":"INE"
+"Clasificación":""
+"Unidad":"Kg/hab"
+"Escala":"Unidades"
+"EscalaFactorPotencia10":"0"
+"SonDatosNumericos":"True"
+;;;;;
+;;;;;
+"Métrica":"Envases mixtos y embalajes mezclados"
+"Fuente":"INE"
+"Clasificación":""
+"Unidad":"Kg/hab"
+"Escala":"Unidades"
+"EscalaFactorPotencia10":"0"
+"SonDatosNumericos":"True"
+;;;;;
+;;;;;
+"Url":"https://www.epdata.es/espana-cada-habitante-separo-51-kg-mezclo-381-kg/3517f32f-9298-42f9-be2f-49702a5aa45f"
+"Titulo":"Cantidad de residuos recogidos por cada habitante en España según el tipo de residuo"
+"Subtitulo":""
