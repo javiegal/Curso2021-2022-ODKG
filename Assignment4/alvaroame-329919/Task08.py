@@ -42,25 +42,14 @@ q1 = prepareQuery('''
   initNs = { "RDFS": RDFS, "RDF": RDF, "NS": ns}
 )
 
-print('Grafo 2')
-for r in g2.query(q1):
-  print(r.subject, r.p, r.o)
-
 print('Grafo 1')
 for r in g1.query(q1):
   print(r.subject, r.p, r.o)
 
-
-g1.add((ns.SaraJones, VCARD.Given, Literal("Sara")))
-g1.add((ns.SaraJones, VCARD.Family, Literal("Jones")))
-g1.add((ns.SaraJones, VCARD.EMAIL, Literal("sara.jones@data.org")))
-
-g1.add((ns.JohnSmith, VCARD.Family, Literal("Smith")))
-
-g1.add((ns.JohnDoe, VCARD.Given, Literal("John")))
-
-g1.add((ns.HarryPotter, VCARD.FN, Literal("Harry Potter")))
-g1.add((ns.HarryPotter, VCARD.EMAIL, Literal("hpotter@hogwarts.org")))
+print('Grafo 2')
+for r in g2.query(q1):
+  print(r.subject, r.p, r.o)
+  g1.add(r)
 
 print('Grafo 1 UPDATED')
 for r in g1.query(q1):

@@ -37,14 +37,12 @@ for s, p, o in g:
 
 #RDFLib
 for s,p,o in g.triples((None, RDFS.subClassOf, ns.Person)):
-  innerClass = g.value(None, RDFS.subClassOf, s)
-  print(s, innerClass)
+  print(s)
 
 
 # SPARQL
 q1 = prepareQuery('''
-  SELECT ?Subject ?InnerSubject WHERE { 
-    ?InnerSubject RDFS:subClassOf ?Subject.
+  SELECT ?Subject WHERE { 
     ?Subject RDFS:subClassOf NS:Person.
   }
   ''',
@@ -53,7 +51,7 @@ q1 = prepareQuery('''
 
 
 for r in g.query(q1):
-  print(r.Subject, r.InnerSubject)
+  print(r.Subject)
 
 
 # **TASK 7.2: List all individuals of "Person" with RDFLib and SPARQL (remember the subClasses)**
@@ -69,28 +67,25 @@ for s,p,o in g.triples((None, RDFS.subClassOf, ns.Person)):
   for si, pi, oi in g.triples((None, RDF.type, s)):
     print(si)
 
-
 # SPARQL
 q1 = prepareQuery('''
-  SELECT ?Subject ?Individuals WHERE { 
-    
+  SELECT ?Subject WHERE { 
+
     {
-        ?Individuals RDF:type ?Subject.
         ?Subject RDFS:subClassOf NS:Person.
     }
     UNION
     {
-        ?Individuals RDF:type NS:Person.
-        ?Subject RDFS:subClassOf NS:Person.
+        ?Subject RDF:type ?s2.
+        ?s2 RDFS:subClassOf NS:Person.
     }
   }
   ''',
-  initNs = { "RDFS": RDFS, "NS": ns, "RDF":RDF }
-)
-
+                  initNs={"RDFS": RDFS, "NS": ns, "RDF": RDF}
+                  )
 
 for r in g.query(q1):
-  print(r.Individuals)
+  print(r.Subject)
 # Visualize the results
 
 
@@ -104,6 +99,11 @@ for s, p, o in g.triples((None, RDF.type, ns.Person)):
   for si, pi, oi in g.triples((s, None, None)):
     print(s, pi, oi)
 
+for s, p, o in g.triples((None, RDFS.subClassOf, ns.Person)):  # Individuals of one of the subclasses of Person (SC)
+  for si, pi, oi in g.triples((None, RDF.type, s)):
+    for ss, pp, oo in g.triples((si, None, None)):
+      print(ss, pp, oo)
+
 # SPARQL
 q1 = prepareQuery('''
   SELECT ?individual ?pro ?value WHERE { 
@@ -111,10 +111,16 @@ q1 = prepareQuery('''
         ?individual RDF:type NS:Person.
         ?individual ?pro ?value.
     }
+    UNION 
+    {
+        ?individual ?pro ?value.
+        ?individual RDF:type ?subclass.
+        ?subclass RDFS:subClassOf NS:Person.      
+    }
   }
   ''',
-  initNs = { "RDFS": RDFS, "NS": ns, "RDF":RDF }
-)
+                  initNs={"RDFS": RDFS, "NS": ns, "RDF": RDF}
+                  )
 
 print()
 
