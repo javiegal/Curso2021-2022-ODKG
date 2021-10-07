@@ -1,4 +1,4 @@
-Group XX
+Group 09
 ==========
 This directory contain all work related to the hands-on for the subject of Open Data and Knowlegde Graphs.
 
