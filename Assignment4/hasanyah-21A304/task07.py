@@ -9,7 +9,6 @@ Original file is located at
 **Task 07: Querying RDF(s)**
 """
 
-!pip install rdflib 
 github_storage = "https://raw.githubusercontent.com/FacultadInformatica-LinkedData/Curso2020-2021/master/Assignment4"
 
 """Leemos el fichero RDF de la forma que lo hemos venido haciendo"""
@@ -79,13 +78,25 @@ for s, p, o in g.triples((None, RDF.type, ns.Person)):
     for sub, pre, obj in g.triples((s, None, None)):
         print(sub, pre, obj)
 
+for s, p, o in g.triples((None, RDFS.subClassOf, ns.Person)):
+  for sub, pre, obj in g.triples((None, RDF.type, s)):
+      for person, rel, subclass in g.triples((sub, None, None)):
+        print(person, rel, subclass)        
+
 
 print("via SPARQL")
 q = prepareQuery('''
   SELECT ?Subject ?Pre ?Obj
   WHERE {
-    ?Subject rdf:type ns:Person .
-    ?Subject ?Pre ?Obj
+    {?Subject rdf:type ns:Person .
+     ?Subject ?Pre ?Obj
+    }
+    UNION 
+    {
+     ?Subclass rdfs:subClassOf ns:Person .
+     ?Subject  rdf:type ?Subclass .
+     ?Subject ?Pre ?Obj
+    }
   }
   ''',
   initNs = { "ns": ns, "rdf": RDF}
