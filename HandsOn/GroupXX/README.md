@@ -4,8 +4,8 @@ This directory contain all work related to the hands-on for the subject of Open 
 
 # Members of the group
 
-*
-*
-*
-* David Lorenzo Alfaro (@ddavidlorenzo)
-* Carlos Morote García (@CarlosMorote)
+* Alvaro Ramirez Sixtos (@alvaroame)
+* Carlos Morote García  (@CarlosMorote)
+* David Lorenzo Alfaro  (@ddavidlorenzo)
+* Hasan Remzi Yahya     (@hasanyah)
+* Raúl González Duarte  (@Sixtrax)
