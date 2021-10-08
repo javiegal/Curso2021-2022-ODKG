@@ -28,14 +28,16 @@ given_family_g1 = {}
 
 for sc in list(g1.transitive_subjects(RDFS.subClassOf, ns1.Person)):
     for s, p, o in g1.triples((None, RDF.type, sc)):
-        given_family_g1[(g1.value(s, vcard.Given), g1.value(s, vcard.Family))] = s
+        if (s, vcard.Given, None) in g1 and (s, vcard.Family, None) in g1:
+            given_family_g1[(g1.value(s, vcard.Given), g1.value(s, vcard.Family))] = s
 
 for sc in list(g2.transitive_subjects(RDFS.subClassOf, ns2.Person)):
     for s, p, o in g2.triples((None, RDF.type, sc)):
-        given = g2.value(s, vcard.Given)
-        family = g2.value(s, vcard.Family)
-        if (given, family) in given_family_g1.keys():
-            g3.add((given_family_g1[(given, family)], OWL.sameAs, s))
+        if (s, vcard.Given, None) in g2 and (s, vcard.Family, None) in g2:
+            given = g2.value(s, vcard.Given)
+            family = g2.value(s, vcard.Family)
+            if (given, family) in given_family_g1.keys():
+                g3.add((given_family_g1[(given, family)], OWL.sameAs, s))
 
 print("\nGraph 3")
 for s, p, o in g3:
