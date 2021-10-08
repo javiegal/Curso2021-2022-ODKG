@@ -68,16 +68,6 @@ FILTER (xsd:integer(?value) > "200000"^^<http://www.w3.org/2001/XMLSchema#intege
 }
 
 9.-
-First,
-PREFIX ex2:<http://GP-onto.fi.upm.es/exercise2#>
-
-select ?place ?p ?o
-where {
-?place <http://www.w3.org/2000/01/rdf-schema#label> "Pazo_Breogan".
-?place ?p ?o
-}
-
-Then,
 PREFIX ex2:<http://GP-onto.fi.upm.es/exercise2#>
 
 select ?street ?number ?locality ?province
@@ -119,18 +109,21 @@ PREFIX ex2:<http://GP-onto.fi.upm.es/exercise2#>
 construct {?touristicPlace ex2:isIn ?province}
 where {
 ?touristicPlace rdf:type/rdfs:subClassOf ex2:TouristicLocation.
-optional{?touristicPlace ex2:isPlacedIn ?locality.
-?locality ex2:inProvince ?province }
-
+?touristicPlace ex2:isPlacedIn ?locality.
+?locality ex2:inProvince ?province
 }
 
 14.-
 PREFIX ex2:<http://GP-onto.fi.upm.es/exercise2#>
 
-ask {?x a ex2:Town}
+ask {
+?x a ex2:Town
+}
 
 15.-
 PREFIX ex2:<http://GP-onto.fi.upm.es/exercise2#>
 
-ask {?x a ex2:Chapel}
+ask {
+?x a ex2:Chapel
+}
 
