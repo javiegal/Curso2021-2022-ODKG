@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Analysis</title>
+  <style>
+      body {
+        font-size: 12;
+      }
+      table {
+        width: 100%;
+      }
+      table, tr, td{
+        border: 1px solid black;
+        border-collapse:collapse;
+      }
+  </style>
+</head>
+<body>
+    <h1>ODKG - 2021/2022 - Group42</h1>
+    <h2>License</h2>
+    <p>The publisher of the data is the City Hall of Madrid</p>
+    <p>The licence is: <a href="https://datos.madrid.es/egob/catalogo/aviso-legal" target="blank">https://datos.madrid.es/egob/catalogo/aviso-legal</a></p>
+    <p>Las condiciones generales permiten la reutilización de los documentos para fines comerciales y no comerciales. Se entiende por reutilización el uso de documentos que obran en poder del Ayuntamiento de Madrid, siempre que dicho uso no constituya una actividad administrativa pública.</p>
+    <h2>Dataset analysis</h2>
+       
+    <p>There are 2245 records in our dataset in summary. The reports are from 2019 Januar 1st to 2021 June 30th.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Column</th>
+          <th>Type</th>
+          <th>Comments/Range</th>
+          <th>Problems</th>
+        </tr>
+        <tr>
+          <td>Nº EXPEDIENTE</td>
+          <td>Text</td>
+          <td>The identification number of the accident. Not unique (there might be different people in the same accident)</td>
+          <td>Duplicated values because of having more people in the same accident</td>
+        </tr>
+        <tr>
+          <td>FECHA</td>
+          <td>Text</td>
+          <td>Date of the accident, DD/MM/YYYY format. No missing values.</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>HORA</td>
+          <td>Text</td>
+          <td>Exact time of the accident, HH:MM format. No missing values. 458 different values.</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>CALLE</td>
+          <td>Text</td>
+          <td>The street where the accident happened.</td>
+          <td>There are some ","s in between the values which needs to be corrected. This attribut does not have a well defined format. The value is not always a street, it could be a name of a restaurant is the accident happened in front of that restaurant.</td>
+        </tr>
+        <tr>
+          <td>NÚMERO</td>
+          <td>Text</td>
+          <td>The number of the street where the accident happend.</td>
+          <td>There are 1075 missing values.</td>
+        </tr>
+        <tr>
+          <td>DISTRITO</td>
+          <td>Text</td>
+          <td>The distinct of the accident. 21 different values (no missing values).</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>TIPO ACCIDENTE</td>
+          <td>Text</td>
+          <td>The type of the accident. 11 different values (no missing values).</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>ESTADO METEREOLÓGICO</td>
+          <td>Text</td>
+          <td>The whether status during the accident. 5 different options, 63 missing values</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>TIPO VEHÍCULO</td>
+          <td>Text</td>
+          <td>The type of the vehicle. 2 different values (no missing values).</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>TIPO PERSONA</td>
+          <td>Text</td>
+          <td>The type of the person (conductor, pasajero, peaton). 3 different values (no missing values).</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>RANGO EDAD</td>
+          <td>Text</td>
+          <td>The range of the person's age. 18 different values (no missing values).</td>
+          <td>There no missing values, however, one of hte values is DECONOCIDE. This needs to be handled later.</td>
+        </tr>
+        <tr>
+          <td>SEXO</td>
+          <td>Text</td>
+          <td>The gender of the person. 2 different values, 41 missing values.</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>LESIVIDAD</td>
+          <td>Number</td>
+          <td>The harmfulness of the accident. It has a value between 1-15 based on how harmful the accident was. 265 missing values.</td>
+          <td></td>
+        </tr>
+      </thead>
+      </table>
+      
+      <h2>Resource naming strategy</h2>
+
+      <h2>Ontology</h2>
+
+</body>
+</html>
