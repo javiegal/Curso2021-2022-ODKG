@@ -12,11 +12,11 @@
 - [ ] Uses a domain that is not the one given by default in Protégé
 - [ ] Uses different paths for ontology resources (i.e., classes and properties) and individuals
 - [ ] Ensures that the paths for individuals of different classes are not the same
-- [ ] Defines property URIs independently of class URIs
+- [ ] Defines individual URIs independently of class URIs
 
 **The ontology file:**
 
-Uses the .ttl extension
+- [ ] Uses the .ttl extension
 - [ ] Is serialized in the Turtle format
 - [ ] Follows the resource naming strategy
 - [ ] Contains at least one class
@@ -30,14 +30,5 @@ Uses the .ttl extension
 - [ ] Does not define multiple domains or multiple ranges in properties
 - [ ] Contains at least one class that will be used to link to other entities
 
-**The sample instantiation file:**
-
-- [ ] Uses the .ttl extension
-- [ ] Is serialized in the Turtle format
-- [ ] Follows the resource naming strategy
-- [ ] Does not include the definition of ontology terms
-
 ## Comments on the self-assessment
-...
-
-
+_(If required)_
