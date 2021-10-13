@@ -4,8 +4,8 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.example.org/group07/ontology> .
+@base <http://e-scooter.com/ontology> .
 
-<http://www.example.org/group33/ontology> rdf:type owl:Ontology .
+<http://e-scooter.com/ontology/y> rdf:type owl:Ontology .
 
 
