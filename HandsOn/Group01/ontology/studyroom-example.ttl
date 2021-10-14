@@ -1,1 +1,12 @@
-Hola
+#################################################################
+#    Individuals
+#################################################################
+
+:11187846 a :studyRoom;
+	:hasPK 11187846^^xsd:integer;
+	:isLocated :Location1;
+	
+:Location1 a :Location;
+	:latitude 40.45224710166^^xsd:real;
+	:longitude -3.658029027767765^^xsd:real;
+
