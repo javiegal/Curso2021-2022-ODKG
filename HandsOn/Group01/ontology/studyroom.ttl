@@ -1,0 +1,18 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://www.studyroomsmadrid.es/ontologies/study-rooms#hasDistrict>
+  a rdfs:Property ;
+  rdfs:range rdfs:Literal ;
+  rdfs:domain <http://www.studyroomsmadrid.es/ontologies/pollutionSensor#pollutionSensor> .
+
+###  http://www.studyroomsmadrid.es/ontologies/study-room/CityDistrict :CityDistrict rdf:type owl:Class ;
+rdfs:subClassOf http://www.studyroomsmadrid.es/www.disit.org/km4city/schema#StudyRoom .
+
+###  http://www.studyroomsmadrid.es/ontologies/study-rooms/hasDistrict
+:hasDistrict rdf:type owl:ObjectProperty ;
+             owl:inverseOf :isTheLocationOf ;
+             rdfs:domain km4c:study_room ;
+             rdfs:range :AdministrativeArea .
+
+
+
