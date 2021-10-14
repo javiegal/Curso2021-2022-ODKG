@@ -1,15 +1,16 @@
-@prefix : <http://opendataGroup03.com/smartBins/ontology/ont#> .
+@prefix : <http://opendatagroup03.com/smartbins/ontology/ont#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix xml: <http://www.w3.org/xml/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .   
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://opendataGroup03.com/smartBins/ontology/ont> .
+@base <http://opendatagroup03.com/smartbins/ontology/ont> .
 
-<http://opendataGroup03.com/smartBins/ontology/ont> rdf:type owl:Ontology .
+<http://opendatagroup03.com/smartbins/ontology/ont> rdf:type owl:Ontology .
+
 
 #################################################################
-#    Object Properties
+#    Object Properties  
 #################################################################
 
 ###  http://opendataGroup03.com/smartBins/ontology/ont#isLocatedIn

@@ -1,6 +1,12 @@
 #################################################################
 #    Individuals
 #################################################################
+@prefix : http://opendatagroup03.com/smartbins . 
+@prefix RecycleBin: http://opendatagroup03.com/smartbins/recyclebin .
+@prefix Location: http://opendatagroup03.com/smartbins/location .
+@prefix xsd: http://www.w3.org/2001/XMLSchema#.
+
+
 
 :1524401 a :RecycleBin;
 	:hasID 1524401^^xsd:integer;
@@ -13,3 +19,7 @@
 	:latitude -369347474986033^^xsd:integer;
 	:longitude 404163721753529^^xsd:integer;
 	:hasAddress "Paseo Del Prado (Plaza De La Lealtad)"^^xsd:string.
+
+
+
+	
