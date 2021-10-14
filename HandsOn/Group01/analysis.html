@@ -19,13 +19,19 @@
 
 <body>
 
-    <h1 style="text-align: center">Data exploration</h1>
+    <h1 style="text-align: center">Assignment 2</h1>
 
-    <h4 style="text-align: center">Our dataset consists of 28 column or attributes and 56 instances or rows.</h2>
+    <h2>
+        Analyse Licensing of the Data Source.
+    </h2>
 
-    <p style="text-align: center">License of the dataset: ODC-BY 1.0. </p>
+    <p>
+        License of the dataset: ODC-BY 1.0. 
+    </p>
 
-    <p style="text-align: center">Potencial license of the dataset to be generated: ODC-BY 1.0. </p>
+    <p>
+        Potencial license of the dataset to be generated: ODC-BY 1.0. 
+    </p>
 
     <p>
         Publisher: Ayuntamiento de Madrid
@@ -46,6 +52,14 @@
             To adapt: to modify, transform and build upon the dataset.
         </li>
     </ol>
+
+    <h2>
+        Analyse Data Set.
+    </h2>
+
+    <p>
+        Our dataset consists of 28 column or attributes and 56 instances or rows.
+    </p>
     
         <ul>
             <li>PK: es un campo clave, dentro de la web municipal, para uso interno. </li>
@@ -138,9 +152,45 @@
                 <dd>Missing values: No</dd>
         </ul>
 
-    <p>
+    <h2>
+        Define Resource Naming Strategy.
+    </h2>
 
+    <p>
+        The resource naming strategy defined for the data is the following according to the Cool URIs guide:
     </p>
+       
+    <p>
+        The URI domain chosen is http://www.studyroomsmadrid.es.
+        We selected this URI after checking that it was free.
+    </p>
+
+        <ul>
+          <li>
+            Ontology:
+            <dd>
+                - Path: http://www.studyroomsmadrid.es/study-rooms# 
+            </dd>
+            <dd>
+                - Pattern: http://www.studyroomsmadrid.es/study-rooms#«entity_name»      
+            </dd>
+            <dd>
+                - Example: http://www.studyroomsmadrid.es/study-rooms#elgreco
+            </dd>
+          </li>
+          <li>
+            Individuals:
+            <dd>
+                - Path: http://www.studyroomsmadrid.es/study-rooms/resource/
+            </dd>
+            <dd>
+                - Pattern: http://www.studyroomsmadrid.es/study-rooms/resource/«resource_class»/«resource_name»
+            </dd>
+            <dd>
+                - Example: http://www.studyroomsmadrid.es/study-rooms/resource/room/miguelhernandez
+            </dd>
+          </li>
+        </ul>
 
 </body>
 </html>
