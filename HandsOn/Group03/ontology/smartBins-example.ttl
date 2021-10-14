@@ -1,0 +1,15 @@
+#################################################################
+#    Individuals
+#################################################################
+
+:1524401 a :RecycleBin;
+	:hasID 1524401^^xsd:integer;
+	:isLocatedIn :Location01;
+	:hasCapacity 0^^xsd:integer;
+	:residueType "envases"^^xsd:string;
+	:isAvailable True^^xsd:boolean;
+	:lastUpdate 2021-10-06T09:46:45.000+0200^^xsd:dateTime.
+:Location01 a :Location;
+	:latitude -369347474986033^^xsd:integer;
+	:longitude 404163721753529^^xsd:integer;
+	:hasAddress "Paseo Del Prado (Plaza De La Lealtad)"^^xsd:string.
