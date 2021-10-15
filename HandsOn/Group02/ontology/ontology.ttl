@@ -10,16 +10,6 @@
                                                         owl:versionIRI <http://www.group02.org/pd/ontology/PedestriansMadrid> .
 
 #################################################################
-#    Annotation properties
-#################################################################
-
-###  http://www.w3.org/2000/01/rdf-schema#label
-rdfs:label rdfs:range xsd:string ;
-           rdfs:domain <http://www.semanticweb.org/javier/ontologies/2021/9/untitled-ontology-6#District> ,
-                       <http://www.semanticweb.org/javier/ontologies/2021/9/untitled-ontology-6#Street> .
-
-
-#################################################################
 #    Object Properties
 #################################################################
 
