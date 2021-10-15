@@ -9,12 +9,12 @@ Original file is located at
 **Task 07: Querying RDF(s)**
 """
 
-!pip install rdflib 
+#!pip install rdflib 
 github_storage = "https://raw.githubusercontent.com/FacultadInformatica-LinkedData/Curso2021-2022/master/Assignment4/course_materials"
 
 """Leemos el fichero RDF de la forma que lo hemos venido haciendo"""
 
-from rdflib import Graph, Namespace, Literal
+from rdflib import Graph, Namespace, Literal, RDFS, RDF
 from rdflib.namespace import RDF, RDFS
 from rdflib.plugins.sparql import prepareQuery
 g = Graph()
@@ -28,7 +28,12 @@ for s,p,o in g:
 """**TASK 7.1: List all subclasses of "Person" with RDFLib and SPARQL**"""
 
 ns = Namespace("http://somewhere#")
-# TO DO
+
+# TODO in RDFLib
+for o,p,s in g.triples((None,RDFS.subClassOf,ns.Person)):
+  print(o)
+
+# TO DO in SPARQL
 q1 = prepareQuery('''
   SELECT ?Subclass WHERE { 
     ?Subclass rdfs:subClassOf ?Person. 
@@ -44,10 +49,22 @@ for r in g.query(q1, initBindings = {'?Person' : ns.Person}):
 
 """
 
-# TO DO
+
+
+# TODO in RDFLib
+from rdflib.paths import *
+
+for o,p,s in g.triples((None,RDFS.subClassOf,ns.Person)):
+  for ob,pr,su in g.triples((None,RDF.type,o)):
+    print(ob)
+
+for ob,pr,su in g.triples((None,RDF.type,ns.Person)):
+  print(ob)
+
+# TO DO in SPARQL
 q2 = prepareQuery('''
   SELECT ?Subject WHERE {
-    ?Class rdfs:subClassOf* ?Person.
+    ?Class rdfs:subClassOf* ns.Person .
     ?Subject rdf:type ?Class
   }
   ''',
@@ -59,6 +76,19 @@ for r in g.query(q2, initBindings = {'?Person' : ns.Person}):
 """**TASK 7.3: List all individuals of "Person" and all their properties including their class with RDFLib and SPARQL**
 
 """
+
+# TODO for RDFLib
+# Obtaining subclasses
+lst = []
+for o,_,_ in g.triples((None,RDFS.subClassOf,ns.Person)):
+  lst.append(o)
+lst.append(ns.Person)
+
+# The query
+for elem in lst:
+  for o,_,_ in g.triples((None,RDF.type,elem)):
+    for _,p,_ in g.triples((o,None,None)):
+      print(o,p)
 
 # TO DO (We assume that we only want the 'property' itself, not the result)
 q3 = prepareQuery('''

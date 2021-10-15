@@ -9,7 +9,7 @@ Original file is located at
 **Task 08: Completing missing data**
 """
 
-!pip install rdflib
+#!pip install rdflib
 github_storage = "https://raw.githubusercontent.com/FacultadInformatica-LinkedData/Curso2021-2022/master/Assignment4/course_materials"
 
 from rdflib import Graph, Namespace, Literal, URIRef
@@ -38,7 +38,7 @@ VCARD = Namespace("http://www.w3.org/2001/vcard-rdf/3.0#")
 #     ?Person VCARD:Family ?val
 #   }
 #   ''',
-#   initNs = { "VCARD": VCARD}  
+#   initNs = { "VCARD": VCARD}
 # )
 
 # # for s,p,o in g2.triples((ns.JohnDoe,VCARD.Family, None)):
@@ -53,7 +53,7 @@ q1 = prepareQuery('''
     ?Subject rdf:type ?Class
   }
   ''',
-  initNs = { "rdfs": RDFS, "rdf": RDF}  
+  initNs = { "rdfs": RDFS, "rdf": RDF}
 )
 
 # Query of Given, Family, email
