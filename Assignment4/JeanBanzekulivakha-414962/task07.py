@@ -35,6 +35,7 @@ ns = Namespace("http://somewhere#")
 
 """ **TASK 7.1: List all subclasses of "Person" with RDFLib and SPARQL** """
 
+""" SPARQL """
 query = prepareQuery('''
   SELECT 
     ?s
@@ -48,8 +49,15 @@ query = prepareQuery('''
 for result in g.query(query):
   print(result)
 
+""" RDFLib """
+for s,p,o in g.triples((None, RDFS.subClassOf, ns.Person)):
+    print(s)
+    for s1,p1,o1 in g.triples((None, RDFS.subClassOf, s)):
+      print(s1)
+
 """ **TASK 7.2: List all individuals of "Person" with RDFLib and SPARQL (remember the subClasses)** """
 
+""" SPARQL """
 query = prepareQuery('''
   SELECT distinct ?Person
   WHERE {
@@ -64,6 +72,14 @@ query = prepareQuery('''
 
 for result in g.query(query):
   print(result)
+
+""" RDFLib """
+for s,p,o in g.triples((None, RDFS.subClassOf, ns.Person)):
+    for s1,p1,o1 in g.triples((None, RDF.type, s)):
+        print(s1)
+        
+for s2,p2,o2 in g.triples((None, RDF.type, ns.Person)):
+    print(s2)
 
 """ **TASK 7.3: List all individuals of "Person" and all their properties including their class with RDFLib and SPARQL** """
 
@@ -82,3 +98,13 @@ query = prepareQuery('''
 
 for result in g.query(query):
   print(result)
+
+""" RDFLib """
+for s,p,o in g.triples((None, RDF.type, ns.Person)):
+  for s1,p1,o1 in g.triples((s, None, None)):
+    print(s1,p1,o1)
+    
+for s,p,o in g.triples((None, RDFS.subClassOf, ns.Person)):
+  for s1,p,o in g.triples((None, RDF.type, s)):
+    for s2,p2,o2 in g.triples((s1, None, None)):
+      print(s2,p2,o2)

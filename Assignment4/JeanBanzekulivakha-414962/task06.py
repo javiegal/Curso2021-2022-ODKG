@@ -53,8 +53,7 @@ g.add((ns.JaneSmith, vcard.Family, Literal("Smith")))
 
 """ **TASK 6.5: Add UPM as the university where John Smith works** """
 g.add((ns.UPM, RDF.type, ns.University))
-g.add((ns.JaneSmith, vcard.FN, Literal("UPM")))
-g.add((ns.JaneSmith, ns.works, ns.UPM))
+g.add((ns.JohnSmith, ns.works, ns.UPM))
 
 for s, p, o in g:
   print(s,p,o)
