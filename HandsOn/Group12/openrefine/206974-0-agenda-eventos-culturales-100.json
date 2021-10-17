@@ -342,7 +342,7 @@
     "edits": [
       {
         "from": [
-          "Entrada gratuita "
+          "Entrada gratuita "
         ],
         "fromBlank": false,
         "fromError": false,
@@ -813,5 +813,188 @@
     "repeat": false,
     "repeatCount": 10,
     "description": "Text transform on cells in column ID-EVENTO using expression value.toNumber()"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "TITULO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "III Jornadas de Teatro y Feminismos: Autoras",
+          "III Jornadas de teatro y feminismos: autoras"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "III Jornadas de Teatro y Feminismos: Autoras"
+      },
+      {
+        "from": [
+          "Leyendo cuentos en octubre ?Tranquila Tragaleguas y el Unicornio mágico?, de 6 a 9 años",
+          "Leyendo cuentos en octubre ?Tranquila Tragaleguas? y ?El Unicornio mágico?, de 6 a 9 años"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Leyendo cuentos en octubre ?Tranquila Tragaleguas y el Unicornio mágico?, de 6 a 9 años"
+      },
+      {
+        "from": [
+          "Magia Mental. Presentación mágica de alumnos",
+          "Magia Mental. presentación mágica de alumnos"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Magia Mental. Presentación mágica de alumnos"
+      },
+      {
+        "from": [
+          "Magia Impromptu. Historia de la Magia",
+          "Magia impromptu. Historia de la Magia"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Magia Impromptu. Historia de la Magia"
+      },
+      {
+        "from": [
+          "Devórate",
+          "Devórate."
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Devórate"
+      },
+      {
+        "from": [
+          "El Mejor de los Sentidos",
+          "El mejor de los sentidos"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "El Mejor de los Sentidos"
+      },
+      {
+        "from": [
+          "Luz de Gas",
+          "Luz de gas"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Luz de Gas"
+      },
+      {
+        "from": [
+          "El Reino de la Alegría",
+          "El reino de la alegría"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "El Reino de la Alegría"
+      },
+      {
+        "from": [
+          "BRUSCO CLOWN",
+          "Brusco Clown"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "BRUSCO CLOWN"
+      }
+    ],
+    "description": "Mass edit cells in column TITULO"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "DESCRIPCION",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Conferencia. Ciclo El Madrid de los Austrias (Siglos XVi-XVII)",
+          "Conferencia. Ciclo El Madrid de los Austrias (Siglos XVI-XVII)"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Conferencia. Ciclo El Madrid de los Austrias (Siglos XVi-XVII)"
+      },
+      {
+        "from": [
+          "La IX edición de Madrid con Otra Mirada tiene como protagonista a Sabatini y el museo rinde homenaje al arquitecto invitando a conocerle en el recorrido guiado 'Sabatini en Madrid: un personaje a causa de las Artes'. El recorrido comenzará en las salas del siglo XVII con el fin de comparar, al pasar a las salas del siglo XVIII, cómo nuestra ciudad, de tener una fisonomía barroca y poco evolucionada, se fue transformando en la ciudad ilustrada del siglo XVIII, siguiendo el proyecto urbanístico de la nueva dinastía borbónica, empresa para la que contaron con prestigiosos urbanistas, ingenieros o arquitectos como Sabatini, que diseñó y ejecutó importantes novedades para convertir a Madrid en una urbe moderna, elegante, monumental y agradable para vivir. Este perfil urbano y monumental de la ciudad se ha mantenido hasta la actualidad, y en él destacan hitos tan importantes como la Puerta de Alcalá o la Puerta del Jardín Botánico, entre otros muchos, que convirtieron a Sabatini en pieza fundamental para la configuración de aquella nueva ciudad que imaginó Carlos III en el siglo XVIII.",
+          "La IX edición de Madrid con otra Mirada tiene como protagonista a Sabatini y el museo rinde homenaje al arquitecto invitando a conocerle en el recorrido guiado 'Sabatini en Madrid: un personaje a causa de las Artes'. El recorrido comenzará en las salas del siglo XVII con el fin de comparar, al pasar a las salas del siglo XVIII, cómo nuestra ciudad, de tener una fisonomía barroca y poco evolucionada, se fue transformando en la ciudad ilustrada del siglo XVIII, siguiendo el proyecto urbanístico de la nueva dinastía borbónica, empresa para la que contaron con prestigiosos urbanistas, ingenieros o arquitectos como Sabatini, que diseñó y ejecutó importantes novedades para convertir a Madrid en una urbe moderna, elegante, monumental y agradable para vivir. Este perfil urbano y monumental de la ciudad se ha mantenido hasta la actualidad, y en él destacan hitos tan importantes como la Puerta de Alcalá o la Puerta del Jardín Botánico, entre otros muchos, que convirtieron a Sabatini en pieza fundamental para la configuración de aquella nueva ciudad que imaginó Carlos III en el siglo XVIII."
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "La IX edición de Madrid con Otra Mirada tiene como protagonista a Sabatini y el museo rinde homenaje al arquitecto invitando a conocerle en el recorrido guiado 'Sabatini en Madrid: un personaje a causa de las Artes'. El recorrido comenzará en las salas del siglo XVII con el fin de comparar, al pasar a las salas del siglo XVIII, cómo nuestra ciudad, de tener una fisonomía barroca y poco evolucionada, se fue transformando en la ciudad ilustrada del siglo XVIII, siguiendo el proyecto urbanístico de la nueva dinastía borbónica, empresa para la que contaron con prestigiosos urbanistas, ingenieros o arquitectos como Sabatini, que diseñó y ejecutó importantes novedades para convertir a Madrid en una urbe moderna, elegante, monumental y agradable para vivir. Este perfil urbano y monumental de la ciudad se ha mantenido hasta la actualidad, y en él destacan hitos tan importantes como la Puerta de Alcalá o la Puerta del Jardín Botánico, entre otros muchos, que convirtieron a Sabatini en pieza fundamental para la configuración de aquella nueva ciudad que imaginó Carlos III en el siglo XVIII."
+      },
+      {
+        "from": [
+          "Brusco de nombre, que no de carácter, es la nueva estrella nacida del público mismo. Brusco es un divertido personaje, a veces portando una maleta mágica, otras veces con otros maravillosos elementos. ¿Qué nos traerá en esta ocasión Brusco?  Edad recomendada: a partir de 3 años.",
+          "Brusco de nombre, que no de carácter, es la nueva estrella nacida del público mismo. Brusco es un divertido personaje, a veces portando una maleta mágica, otras veces con otros maravillosos elementos? ¿Qué nos traerá en esta ocasión Brusco? Edad recomendada:  A partir de 3 años"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Brusco de nombre, que no de carácter, es la nueva estrella nacida del público mismo. Brusco es un divertido personaje, a veces portando una maleta mágica, otras veces con otros maravillosos elementos. ¿Qué nos traerá en esta ocasión Brusco?  Edad recomendada: a partir de 3 años."
+      },
+      {
+        "from": [
+          "Tranquila Tragaleguas y el Unicornio mágico   Edades: De 6 a 9 años. Apúntate a este divertido taller y a través de la pantalla ¡volveremos a leer y a divertirnos juntos!  Envía el formulario seleccionando la fecha de la actividad. La biblioteca se pondrá en contacto contigo para proporcionarte el enlace que deberás activar en tu ordenador, tablet o movil. La conexión se realizará a través de la aplicación ZOOM.  El máximo por sesión son 15 plazas, se respetará el orden de inscripción.",
+          "Tranquila Tragaleguas y el Unicornio mágico  Edades: De 6 a 9 años. Apúntate a este divertido taller y a través de la pantalla ¡volveremos a leer y a divertirnos juntos!  Envía el formulario seleccionando la fecha de la actividad. La biblioteca se pondrá en contacto contigo para proporcionarte el enlace que deberás activar en tu ordenador, tablet o movil. La conexión se realizará a través de la aplicación ZOOM.  El máximo por sesión son 15 plazas, se respetará el orden de inscripción."
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Tranquila Tragaleguas y el Unicornio mágico   Edades: De 6 a 9 años. Apúntate a este divertido taller y a través de la pantalla ¡volveremos a leer y a divertirnos juntos!  Envía el formulario seleccionando la fecha de la actividad. La biblioteca se pondrá en contacto contigo para proporcionarte el enlace que deberás activar en tu ordenador, tablet o movil. La conexión se realizará a través de la aplicación ZOOM.  El máximo por sesión son 15 plazas, se respetará el orden de inscripción."
+      }
+    ],
+    "description": "Mass edit cells in column DESCRIPCION"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "TITULO-ACTIVIDAD",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Devórate",
+          "Devórate."
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Devórate"
+      }
+    ],
+    "description": "Mass edit cells in column TITULO-ACTIVIDAD"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "BARRIO-INSTALACION",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "LOS JERONIMOS",
+          "LOS JERÓNIMOS"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "LOS JERONIMOS"
+      }
+    ],
+    "description": "Mass edit cells in column BARRIO-INSTALACION"
   }
 ]
