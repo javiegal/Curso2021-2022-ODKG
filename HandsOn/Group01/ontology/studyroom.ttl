@@ -1,0 +1,51 @@
+@prefix : <http://www.studyroomsmadrid.es/studyRoom/ontology/studyOnt#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.studyroomsmadrid.es/studyRoom/ontology/studyOnt> .
+
+<http://www.studyroomsmadrid.es/studyRoom/ontology/studyOnt> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.studyroomsmadrid.es/studyRoom/ontology/studyOnt#isLocated
+:isLocated rdf:type owl:ObjectProperty ;
+        rdfs:domain :studyRoom ;
+        rdfs:range :Location .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.studyroomsmadrid.es/studyRoom/ontology/studyOnt#hasPK
+:hasPK rdf:type owl:DatatypeProperty ;
+        rdfs:domain :studyRoom ;
+        rdfs:range xsd:integer .
+
+###  http://www.studyroomsmadrid.es/studyRoom/ontology/studyOnt#latitude
+:latitude rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Location ;
+        rdfs:range xsd:real .    
+          
+###  http://www.studyroomsmadrid.es/studyRoom/ontology/studyOnt#longitude  
+:longitude rdf:type owl:DatatypeProperty ;          
+        rdfs:domain :Location ;          
+        rdfs:range xsd:real .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.studyroomsmadrid.es/studyRoom/ontology/studyOnt#studyRoom
+:studyRoom rdf:type owl:Class .
+
+###  http://www.studyroomsmadrid.es/studyRoom/ontology/studyOnt#Location
+:Location rdf:type owl:Class .
+
+
+
