@@ -9,7 +9,7 @@ Original file is located at
 **Task 07: Querying RDF(s)**
 """
 
-!pip install rdflib 
+#!pip install rdflib 
 github_storage = "https://raw.githubusercontent.com/FacultadInformatica-LinkedData/Curso2021-2022/master/Assignment4/course_materials"
 
 """Leemos el fichero RDF de la forma que lo hemos venido haciendo"""
@@ -28,21 +28,29 @@ for subj, pred, obj in g:
 
 # TO DO
 # Visualize the results
+
+#List all the subclasses of "Person" with SPARQL
 from rdflib.plugins.sparql import prepareQuery
 
-VCARD = Namespace("http://www.w3.org/2000/01/rdf-schema#")
+rdf = Namespace("http://www.w3.org/2000/01/rdf-schema#")
 ns = Namespace("http://somewhere#")
 
 q1=prepareQuery('''
   SELECT ?Subclass WHERE {
-    ?Subclass vcard:subClassOf+ ?Class .
+    ?Subclass rdf:subClassOf+ ?Class .
   }
   ''',
-  initNs = { "vcard": VCARD}
+  initNs = { "rdf": rdf}
 )
 
 for r in g.query(q1, initBindings = {'?Class': ns.Person }):
   print(r.Subclass)
+
+#List all the subclasses of "Person" with RDLib
+for s0,p0,o0 in g.triples((None, RDFS.subClassOf, ns.Person)):
+    print(s0)
+    for s1,p1,o1 in g.triples((None, RDFS.subClassOf, s0)):
+      print(s1)
 
 """**TASK 7.2: List all individuals of "Person" with RDFLib and SPARQL (remember the subClasses)**
 
@@ -51,19 +59,29 @@ for r in g.query(q1, initBindings = {'?Class': ns.Person }):
 # TO DO
 # Visualize the results
 
+#List all the individuals of "Person" with SPARQL
+
 ns0 = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
 
 q2=prepareQuery('''
   SELECT ?Subject WHERE {
-    ?Subclass vcard:subClassOf* ?Class .
+    ?Subclass rdf:subClassOf* ?Class .
     ?Subject ns0:type ?Subclass .
   }
   ''',
-  initNs = { "vcard": VCARD, "ns0": ns0}
+  initNs = { "rdf": rdf, "ns0": ns0}
 )
 
 for r in g.query(q2, initBindings = {'?Class': ns.Person }):
   print(r.Subject)
+
+#List all the individuals of "Person" with RDFLib
+for s0,p0,o0 in g.triples((None, RDFS.subClassOf, ns.Person)):
+    for s1,p1,o1 in g.triples((None, RDF.type, s0)):
+        print(s1)
+
+for s,p,o in g.triples((None, RDF.type, ns.Person)):
+    print(s)
 
 """**TASK 7.3: List all individuals of "Person" and all their properties including their class with RDFLib and SPARQL**
 
@@ -71,6 +89,8 @@ for r in g.query(q2, initBindings = {'?Class': ns.Person }):
 
 # TO DO
 # Visualize the results
+
+#List all individuals of "Person" and all their properties including their class with SPARQL
 
 q3=prepareQuery('''
   SELECT ?Subject ?Properties ?Value WHERE {
@@ -84,3 +104,13 @@ q3=prepareQuery('''
 
 for r in g.query(q3, initBindings = {'?Class': ns.Person }):
   print(r.Subject, r.Properties, r.Value)
+
+#List all individuals of "Person" and all their properties including their class with RDFLib
+for s0,p0,o0 in g.triples((None, RDF.type, ns.Person)):
+  for s1,p1,o1 in g.triples((s0, None, None)):
+    print(s1,p1,o1)
+
+for s0,p0,o0 in g.triples((None, RDFS.subClassOf, ns.Person)):
+  for s1,p1,o1 in g.triples((None, RDF.type, s0)):
+    for s2,p2,o2 in g.triples((s1, None, None)):
+      print(s2,p2,o2)

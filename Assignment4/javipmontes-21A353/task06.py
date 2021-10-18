@@ -9,7 +9,7 @@ Original file is located at
 **Task 06: Modifying RDF(s)**
 """
 
-!pip install rdflib 
+#!pip install rdflib 
 github_storage = "https://raw.githubusercontent.com/FacultadInformatica-LinkedData/Curso2021-2022/master/Assignment4/course_materials"
 
 """Leemos el fichero RDF de la forma que lo hemos venido haciendo"""
@@ -44,7 +44,7 @@ for s, p, o in g:
 # Visualize the results
 vcard = Namespace("http://www.w3.org/2001/vcard-rdf/3.0#")
 
-g.add((ns.Researcher, RDFS.subClassOf, ns.University))
+g.add((ns.Researcher, RDFS.subClassOf, ns.Person))
 
 for s, p, o in g:
   print(s,p,o)
@@ -85,6 +85,7 @@ for s, p, o in g:
 # Visualize the results
 
 uriUniversity = Namespace("http://somewhere#University/")
+
 resource = (uriUniversity.UPM, RDF.type, ns.University)
 g.add(resource)
 
