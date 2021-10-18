@@ -20,9 +20,9 @@
       "facets": [
         {
           "type": "list",
-          "name": "DISTRITO",
+          "name": "PK",
           "expression": "value",
-          "columnName": "DISTRITO",
+          "columnName": "PK",
           "invert": false,
           "omitBlank": false,
           "omitError": false,
@@ -36,49 +36,14 @@
     "description": "Remove rows"
   },
   {
-    "op": "core/mass-edit",
-    "engineConfig": {
-      "facets": [],
-      "mode": "row-based"
-    },
-    "columnName": "NOMBRE-VIA",
-    "expression": "value",
-    "edits": [
-      {
-        "from": [
-          "Santuario de Valverde."
-        ],
-        "fromBlank": false,
-        "fromError": false,
-        "to": "SANTUARIO DE VALVERDE"
-      }
-    ],
-    "description": "Mass edit cells in column NOMBRE-VIA"
-  },
-  {
     "op": "core/column-removal",
     "columnName": "FAX",
     "description": "Remove column FAX"
   },
   {
-    "op": "core/mass-edit",
-    "engineConfig": {
-      "facets": [],
-      "mode": "row-based"
-    },
-    "columnName": "TELEFONO",
-    "expression": "value",
-    "edits": [
-      {
-        "from": [
-          "913 767 085 (Centro Cultural)"
-        ],
-        "fromBlank": false,
-        "fromError": false,
-        "to": "913 767 085"
-      }
-    ],
-    "description": "Mass edit cells in column TELEFONO"
+    "op": "core/column-removal",
+    "columnName": "EMAIL",
+    "description": "Remove column EMAIL"
   },
   {
     "op": "core/column-split",
@@ -112,5 +77,93 @@
     "op": "core/column-removal",
     "columnName": "DESCRIPCION",
     "description": "Remove column DESCRIPCION"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "DESCRIPCION-ENTIDAD",
+    "description": "Remove column DESCRIPCION-ENTIDAD"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "EQUIPAMIENTO",
+    "newColumnName": "DESCRIPCION",
+    "description": "Rename column EQUIPAMIENTO to DESCRIPCION"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "NOMBRE-VIA",
+    "expression": "value.toUppercase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column NOMBRE-VIA using expression value.toUppercase()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "HORARIO",
+    "expression": "grel:if(value==null,'Consultar telefónicamente.',value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column HORARIO using expression grel:if(value==null,'Consultar telefónicamente.',value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "CLASE-VIAL",
+    "expression": "value.toUppercase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column CLASE-VIAL using expression value.toUppercase()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ORIENTACION",
+    "expression": "value.toLowercase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column ORIENTACION using expression value.toLowercase()"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "TIPO-NUM",
+    "description": "Remove column TIPO-NUM"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "ORIENTACION",
+    "description": "Remove column ORIENTACION"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "TIPO",
+    "description": "Remove column TIPO"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "COORDENADA-X",
+    "description": "Remove column COORDENADA-X"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "COORDENADA-Y",
+    "description": "Remove column COORDENADA-Y"
   }
 ]
