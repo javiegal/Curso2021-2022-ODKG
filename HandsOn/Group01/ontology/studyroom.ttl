@@ -52,8 +52,8 @@
         rdfs:domain :studyRoom ;
         rdfs:range xsd:string .
 
-###  http://www.studyroomsmadrid.es/studyRoom/ontology/studyOnt#hasContenUrl
-:hasContenUrl rdf:type owl:DatatypeProperty ;
+###  http://www.studyroomsmadrid.es/studyRoom/ontology/studyOnt#hasContentUrl
+:hasContentUrl rdf:type owl:DatatypeProperty ;
         rdfs:domain :studyRoom ;
         rdfs:range xsd:string .
 
@@ -69,6 +69,11 @@
 
 ###  http://www.studyroomsmadrid.es/studyRoom/ontology/studyOnt#hasTelephone3
 :hasTelephone3 rdf:type owl:DatatypeProperty ;
+        rdfs:domain :studyRoom ;
+        rdfs:range xsd:string .
+
+###  http://www.studyroomsmadrid.es/studyRoom/ontology/studyOnt#hasTransport
+:hasTransport rdf:type owl:DatatypeProperty ;
         rdfs:domain :studyRoom ;
         rdfs:range xsd:string .
 
