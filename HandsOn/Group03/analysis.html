@@ -37,16 +37,16 @@
         <p> Range: [0-10]</p>
         <p> Description: It indicates the fill level of the recycle bin, from 0 to 10. The higher the number, the fuller it is.</p>
 
-        <h2>alerta</h2>
+        <h2>estado</h2>
         <p> type: String</p>
-        <p> Range: [null, LLENA, ERROR]</p>
+        <p> Range: [OK, LLENA, ERROR]</p>
         <p> Description: It indicates the actual state of the bin. 
-            No value means that the state is OK
+            "OK" means that the bin is operative,
             "LLENA" means that the recycle bin is full, 
             and "ERROR" means that there was an error on the lecture of the bin (the values might not be correct). </p>
 
         <h2>fecha</h2>
-        <p>Type:DateTime(yyyy-mm-ddT:hh:mm:ss.sss+0200)</p>
+        <p>Type:DateTime(YYYY-MM-DDTHH:MM:SS)</p>
         <p>Description: It told us the last time the information about the recicle bin was collected </p>
 
         <h2>License</h2>
