@@ -14,9 +14,9 @@
     rdfs:domain :Accident;
     rdfs:range :Person .
 
-:hasStreet a owl:ObjectProperty;
+:hasAddress a owl:ObjectProperty;
     rdfs:domain :Accident;
-    rdfs:range :Street .
+    rdfs:range :Address .
 
 #################################################################
 #    Data properties
@@ -34,45 +34,40 @@ rel:hasType a :DataProperty;
     rdfs:domain :Accident;
     rdfs:range xsd:string .
 
+rel:hasAccidentID a :DataProperty;
+    rdfs:domain :Accident;
+    rdfs:range xsd:string .
+
 rel:hasAge a :DataProperty;
     rdfs:domain :Person;
     rdfs:range xsd:integer .
-
 
 rel:hasSex a :DataProperty;
     rdfs:domain :Person;
     rdfs:range xsd:string .
 
+rel:hasPersonID a :DataProperty;
+    rdfs:domain :Person;
+    rdfs:range xsd:string .
 
 rel:hasInjury a :DataProperty;
     rdfs:domain :Person;
     rdfs:range xsd:string .
 
-
-rel:hasPositiveDrugTest a :DataProperty;
-    rdfs:domain :Person;
-    rdfs:range xsd:string .
-
-
 rel:hasPositiveAlcoholTest a :DataProperty;
     rdfs:domain :Person;
     rdfs:range xsd:string .
 
-
-rel:hasCoordX a :DataProperty;
-    rdfs:domain :Street;
-    rdfs:range xsd:float .
-
-rel:hasCoordY a :DataProperty;
-    rdfs:domain :Street;
-    rdfs:range xsd:float .
+rel:hasStreet a :DataProperty;
+    rdfs:domain :Address;
+    rdfs:range xsd:string .
 
 rel:hasDistrict a :DataProperty;
-    rdfs:domain :Street;
+    rdfs:domain :Address;
     rdfs:range xsd:string .
 
 rel:hasNumber a :DataProperty;
-    rdfs:domain :Street;
+    rdfs:domain :Address;
     rdfs:range xsd:integer .
 
 #################################################################
@@ -83,4 +78,4 @@ rel:hasNumber a :DataProperty;
 
 :Person a owl:Class .
 
-:Street a owl:Class .
+:Address a owl:Class .
