@@ -10,7 +10,7 @@
 
 
 
-<TriplesMap1> a rr:TriplesMap;
+<AddressMap> a rr:TriplesMap;
   rml:logicalSource [
     rml:source "./data/data-trimmed.csv" ;
     rml:referenceFormulation ql:CSV 
@@ -35,4 +35,69 @@
       rr:datatype xsd:int
       ]
   ].
+
+
+<FacilityMap> a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "./data/data-trimmed.csv" ;
+    rml:referenceFormulation ql:CSV 
+  ];
+  rr:subjectMap [
+    rr:template "https://data.eventsatmadrid.org/resource/facility/{NOMBRE-INSTALACION}";
+    rr:class ns:Facility
+  ];
+
+
+  rr:predicateObjectMap [
+    rr:predicate ns:hasName;
+    rr:objectMap [
+      rml:reference "NOMBRE-INSTALACION";
+      rr:datatype xsd:anyURI
+      ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ns:hasURL;
+    rr:objectMap [
+      rml:reference "URL-INSTALACION";
+      rr:datatype xsd:anyURI
+      ]
+  ];
+  
+  rr:predicateObjectMap [
+    rr:predicate ns:hasAccesibility;
+    rr:objectMap [
+      rml:reference "ACCESIBILIDAD-INSTALACION";
+      rr:datatype xsd:string
+      ]
+  ];
+  
+  rr:predicateObjectMap [
+    rr:predicate ns:hasScheduleURL;
+    rr:objectMap [
+      rml:reference "URL-ACTIVIDAD";
+      rr:datatype xsd:anyURI
+      ]
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ns:hasCoordinates;
+    rr:objectMap [
+      rml:reference "COORDINATES";
+      rr:datatype xsd:string
+      ]
+  ];
+
+  rr:predicateObjectMap [
+  rr:predicate ns:hasAddress;
+  rr:objectMap [
+    rr:parentTriplesMap <AddressMap>;
+    ];
+  ].
+
+#  rr:predicateObjectMap [
+#  rr:predicate ns:isLocatedAt;
+#  rr:objectMap [
+#    rr:parentTriplesMap <Neighborhood>;
+#  ].
 
