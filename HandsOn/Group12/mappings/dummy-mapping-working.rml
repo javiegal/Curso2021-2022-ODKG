@@ -17,23 +17,22 @@
     rml:referenceFormulation ql:CSV 
   ];
   rr:subjectMap [
-    rr:template "https://data.eventsatmadrid.org/resource/address/{ADDRESS}";
-    rr:class ns:Address
+    rr:template "https://data.eventsatmadrid.org/resource/address/{ID\-EVENTO}";
+    rr:class ns:Evento
   ];
 
   rr:predicateObjectMap [
-    rr:predicate ns:hasStreetAddress;
-    rr:objectMap [
-      rml:reference "ADDRESS";
-      rr:datatype xsd:string
-      ]
-  ];
-  
-  rr:predicateObjectMap [
     rr:predicate ns:hasPostalCode;
     rr:objectMap [
-      rml:reference "CODIGO-POSTAL-INSTALACION";
+      rml:reference "CODIGO\-POSTAL\-INSTALACION";
       rr:datatype xsd:int
       ]
   ].
 
+ # rr:predicateObjectMap [
+ #   rr:predicate ns:hasStreetAddress;
+ #   rr:objectMap [
+ #     rml:reference "ADDRESS";
+ #     rr:datatype xsd:string.
+ #     ]
+ # ].
