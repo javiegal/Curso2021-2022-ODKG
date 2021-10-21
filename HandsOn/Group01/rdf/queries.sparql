@@ -1,24 +1,42 @@
-# Query 1
+# Query 1: Get the name and the schedule of each study room
 PREFIX sr: <http://www.studyroomsmadrid.es/studyRoom/ontology/studyOnt>
-SELECT ?NOMBRE ?TRANSPORTE
+SELECT ?name ?schedule
 WHERE {
-    ?NOMBRE sr:hasName "Sala de estudio El Madroño (Vicálvaro)" .
-    ?NOMBRE sr:hasTransport ?TRANSPORTE .
+    ?x a sr:StudyRoom .
+    ?x sr:hasName ?name .
+    ?x sr:hasSchedule ?schedule .
 }
 
-# Query 2
+# Query 2: Get the name, the name and the type of the via of each study rooms with postal code 28024
 PREFIX sr: <http://www.studyroomsmadrid.es/studyRoom/ontology/studyOnt>
-SELECT ?NOMBRE ?NOMBRE-VIA ?CODIGO-POSTAL
+SELECT ?name ?roadName ?roadType
 WHERE {
-    ?NOMBRE sr:hasName ?NOMBRE .
-    ?NOMBRE-VIA sr:hasRoadName .
-    ?CODIGO-POSTAl sr:hasPostalCode 28024
+    ?x a sr:StudyRoom .
+    ?x sr:hasName ?name .
+    ?x sr:hasAddress ?y .
+    ?y sr:hasRoadName ?roadName .
+    ?y sr:hasRoadType  ?roadType .
+    ?y sr:hasPostalCode "28024"^^xsd:string .
 }
 
-# Query 3
+# Query 3: Get the name and the url of all study rooms which have url.
 PREFIX sr: <http://www.studyroomsmadrid.es/studyRoom/ontology/studyOnt>
-SELECT ?NOMBRE ?CONTENT-URL
+SELECT ?name ?url
 WHERE {
-    ?NOMBRE sr:hasName ?NOMBRE .
-    ?CONTENT-URL sr:hasContentUrl <http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=1bcbc1e158558110VgnVCM1000000b205a0aRCRD>
+    ?x a sr:StudyRoom .
+    ?x sr:hasName ?name .
+    ?x sr:hasContentUrl ?url
+}
+
+# Query 4: Get the latitude, longitude and postal code of the study room called "Aula de estudio Centro Cultural San Juan Bautista (Ciudad Lineal)".
+PREFIX sr: <http://www.studyroomsmadrid.es/studyRoom/ontology/studyOnt>
+SELECT ?lat ?lon ?postalCode
+WHERE {
+    ?x a sr:StudyRoom .
+    ?x sr:hasName "Aula de estudio Centro Cultural San Juan Bautista (Ciudad Lineal)"^^xsd:string .
+    ?x sr:hasAddress ?y .
+    ?y sr:hasPostalCode ?postalCode .
+    ?x sr:isLocated ?z .
+    ?z sr:latitude ?lat .
+    ?z sr:longitude ?lon .
 }
