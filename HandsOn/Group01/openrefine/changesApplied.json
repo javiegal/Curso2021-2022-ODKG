@@ -222,5 +222,12 @@
     "op": "core/column-removal",
     "columnName": "Column",
     "description": "Remove column Column"
+  },
+    "columnName": "ACCESIBILIDAD",
+    "expression": "value.replace(\",\",\" y \")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column ACCESIBILIDAD using expression value.replace(\",\",\" y \")"
   }
 ]
