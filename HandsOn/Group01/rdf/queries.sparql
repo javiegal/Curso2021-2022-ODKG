@@ -1,0 +1,24 @@
+# Query 1
+PREFIX sr: <http://www.studyroomsmadrid.es/studyRoom/ontology/studyOnt>
+SELECT ?NOMBRE ?TRANSPORTE
+WHERE {
+    ?NOMBRE sr:hasName "Sala de estudio El Madroño (Vicálvaro)" .
+    ?NOMBRE sr:hasTransport ?TRANSPORTE .
+}
+
+# Query 2
+PREFIX sr: <http://www.studyroomsmadrid.es/studyRoom/ontology/studyOnt>
+SELECT ?NOMBRE ?NOMBRE-VIA ?CODIGO-POSTAL
+WHERE {
+    ?NOMBRE sr:hasName ?NOMBRE .
+    ?NOMBRE-VIA sr:hasRoadName .
+    ?CODIGO-POSTAl sr:hasPostalCode 28024
+}
+
+# Query 3
+PREFIX sr: <http://www.studyroomsmadrid.es/studyRoom/ontology/studyOnt>
+SELECT ?NOMBRE ?CONTENT-URL
+WHERE {
+    ?NOMBRE sr:hasName ?NOMBRE .
+    ?CONTENT-URL sr:hasContentUrl <http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=1bcbc1e158558110VgnVCM1000000b205a0aRCRD>
+}
