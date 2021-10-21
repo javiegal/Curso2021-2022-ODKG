@@ -1,0 +1,105 @@
+# 1.- All existing streets with their label and the district they belong to
+
+PREFIX ont: <http://www.group02.org/pd/ontology/PedestriansMadrid#>
+select ?Street ?StreetName ?district where {
+  ?Street rdf:type ont:Street.
+  ?Street rdfs:label ?StreetName.
+  ?Street ont:hasDistrict ?district
+}
+
+# 2.- All existing districts
+
+PREFIX ont: <http://www.group02.org/pd/ontology/PedestriansMadrid#>
+select ?district ?districtName where {
+  ?district rdf:type ont:District.
+  ?district rdfs:label ?districtName
+}
+
+# 3.- All existing measurement points and their information
+
+PREFIX ont: <http://www.group02.org/pd/ontology/PedestriansMadrid#>
+select ?measurement_point ?id ?Street ?number ?postCode ?obs ?latitude ?longitude where {
+  ?measurement_point rdf:type ont:MeasurementPoint.
+  ?measurement_point ont:id ?id.
+  ?measurement_point ont:hasStreet ?Street.
+  ?measurement_point ont:hasNumber ?number.
+  ?measurement_point ont:hasPostCode ?postCode.
+  ?measurement_point ont:hasObservation ?obs.
+  ?measurement_point ont:hasLatitude ?latitude.
+  ?measurement_point ont:hasLongitude ?longitude
+}
+
+# 4.- All measurement points and the amount of measurements associated to each one
+
+PREFIX ont: <http://www.group02.org/pd/ontology/PedestriansMadrid#>
+select ?measurement_point (COUNT(?measurement) AS ?nMeasurements) where  {
+  ?measurement_point rdf:type ont:MeasurementPoint.
+  ?measurement ont:isLocated ?measurement_point.
+} group by ?measurement_point
+
+# 5.- Minimum and maximum number of pedestrians for a single measurement
+
+PREFIX ont: <http://www.group02.org/pd/ontology/PedestriansMadrid#>
+select (max(?pedestrians) as ?max) (min(?pedestrians) as ?min) where  {
+  ?measurement ont:hasPedestrians ?pedestrians.
+}
+
+# 6.- Number of days that have at least one measurement
+
+PREFIX ont: <http://www.group02.org/pd/ontology/PedestriansMadrid#>
+select (count(distinct day(?date)) as ?ndays) where  {
+  ?measurement rdf:type ont:Measurement.
+  ?measurement ont:hasDate ?date
+}
+
+# 7.- Amount of measurements
+
+PREFIX ont: <http://www.group02.org/pd/ontology/PedestriansMadrid#>
+select (count(*) as ?nMeasurements) where  {
+  ?measurement rdf:type ont:Measurement.
+}
+
+# 8.- All districts and the amount of measurements associated to each one
+
+PREFIX ont: <http://www.group02.org/pd/ontology/PedestriansMadrid#>
+select ?district (count(*) as ?nMeasurements) where  {
+  ?measurement ?isLocated ?measurement_point.
+  ?measurement_point ?hasStreet ?Street.
+  ?Street ?hasDistrict ?district.
+  ?district rdf:type ont:District.
+} group by ?district
+
+# 9.- All streets and the amount of measurements associated to each one
+
+PREFIX ont: <http://www.group02.org/pd/ontology/PedestriansMadrid#>
+select ?Street (count(*) as ?nMeasurements) where  {
+  ?measurement ?isLocated ?measurement_point.
+  ?measurement_point ?hasStreet ?Street.
+  ?Street rdf:type ont:Street.
+} group by ?Street
+
+# 10.- First 10 measurements with their info
+
+PREFIX ont: <http://www.group02.org/pd/ontology/PedestriansMadrid#>
+select ?measurement ?date ?pedestrians ?measurement_point where  {
+  ?measurement rdf:type ont:Measurement.
+  ?measurement ont:hasDate ?date.
+  ?measurement ont:hasPedestrians ?pedestrians.
+  ?measurement ont:isLocated ?measurement_point.
+} limit 10
+
+# 11.- Date of the latest measurement
+
+PREFIX ont: <http://www.group02.org/pd/ontology/PedestriansMadrid#>
+select ?date where {
+  ?measurement rdf:type ont:Measurement.
+  ?measurement ont:hasDate ?date.
+} order by desc(?date) limit 1
+
+# 12.- Date of the oldest measurement
+
+PREFIX ont: <http://www.group02.org/pd/ontology/PedestriansMadrid#>
+select ?date where {
+  ?measurement rdf:type ont:Measurement.
+  ?measurement ont:hasDate ?date.
+} order by asc(?date) limit 1
