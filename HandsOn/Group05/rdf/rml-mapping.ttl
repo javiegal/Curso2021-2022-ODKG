@@ -1,0 +1,144 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#>.
+@prefix ex: <http://example.com/ns#>.
+@prefix ql: <http://semweb.mmlab.be/ns/ql#>.
+@prefix rml: <http://semweb.mmlab.be/ns/rml#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<#TriplesMap1>
+   rml:logicalSource [
+      rml:source "./data/agenda-actividades-eventos.csv";
+      rml:referenceFormulation ql:CSV
+   ];
+   rr:subjectMap [
+      rr:template "http://groupfive.edu/kg/ontology/MadridEvents#{eventID}";
+      rr:class ex:Event 
+   ];
+
+   rr:predicateObjectMap [
+      rr:predicate ex:heldIn;
+      rr:objectMap [ 
+         rml:reference "Facilities" 
+      ]
+   ];
+
+   rr:predicateObjectMap [
+      rr:predicate ex:accessibility;
+      rr:objectMap [ 
+         rml:reference "accessibility";
+         rr:datatype xsd:string
+      ]
+   ];
+
+   rr:predicateObjectMap [
+      rr:predicate ex:address;
+      rr:objectMap [ 
+         rml:reference "address";
+         rr:datatype xsd:string
+      ]
+   ];
+
+   rr:predicateObjectMap [
+      rr:predicate ex:audience;
+      rr:objectMap [ 
+         rml:reference "audience";
+         rr:datatype xsd:string
+      ]
+   ];
+
+   rr:predicateObjectMap [
+      rr:predicate ex:endingDate;
+      rr:objectMap [ 
+         rml:reference "EndingDate";
+         rr:datatype xsd:dateTime
+      ]
+   ];
+
+   rr:predicateObjectMap [
+      rr:predicate ex:heldOn;
+      rr:objectMap [ 
+         rml:reference "heldOn";
+         rr:datatype xsd:string
+      ]
+   ];
+
+   rr:predicateObjectMap [
+      rr:predicate ex:longDuration;
+      rr:objectMap [ 
+         rml:reference "longDuration";
+         rr:datatype xsd:boolean
+      ]
+   ];
+
+   rr:predicateObjectMap [
+      rr:predicate ex:price;
+      rr:objectMap [ 
+         rml:reference "price";
+         rr:datatype xsd:float
+      ]
+   ];
+
+   rr:predicateObjectMap [
+      rr:predicate ex:startingDate;
+      rr:objectMap [ 
+         rml:reference "startingDate";
+         rr:datatype xsd:dateTime
+      ]
+   ];
+
+   rr:predicateObjectMap [
+      rr:predicate ex:type;
+      rr:objectMap [ 
+         rml:reference "type";
+         rr:datatype xsd:string
+      ]
+   ];
+
+   rr:predicateObjectMap [
+      rr:predicate ex:url;
+      rr:objectMap [ 
+         rml:reference "url";
+         rr:datatype xsd:string
+      ]
+   ].
+
+<#TriplesMap2>
+   rml:logicalSource [
+      rml:source "./data/agenda-actividades-eventos.csv";
+      rml:referenceFormulation ql:CSV
+   ];
+   rr:subjectMap [
+      rr:template "http://groupfive.edu/kg/ontology/MadridEvents#{urlLink}";
+      rr:class ex:Facilities 
+   ];
+
+   rr:predicateObjectMap [
+      rr:predicate ex:address;
+      rr:objectMap [
+         rml:reference "address"; 
+         rr:datatype xsd:string
+      ]
+   ];
+
+   rr:predicateObjectMap [
+      rr:predicate ex:accessibility;
+      rr:objectMap [ 
+         rml:reference "accessibility"; 
+         rr:datatype xsd:string
+      ]
+   ];
+
+   rr:predicateObjectMap [
+      rr:predicate ex:latitude;
+      rr:objectMap [ 
+         rml:reference "latitude"; 
+      ]
+   ];
+
+   rr:predicateObjectMap [
+      rr:predicate ex:longitude;
+      rr:objectMap [ 
+         rml:reference "longitude"; 
+      ]
+   ].
+
+
