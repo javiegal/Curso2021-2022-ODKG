@@ -67,28 +67,28 @@
 :hasDistrictNumber rdf:type owl:DatatypeProperty ;
                    rdfs:subPropertyOf owl:topDataProperty ;
                    rdfs:domain :District ;
-                   rdfs:range xsd:decimal .
+                   rdfs:range xsd:integer .
 
 
 ###  http://www.group02.org/pd/ontology/PedestriansMadrid#hasLatitude
 :hasLatitude rdf:type owl:DatatypeProperty ;
              rdfs:subPropertyOf owl:topDataProperty ;
              rdfs:domain :MeasurementPoint ;
-             rdfs:range xsd:float .
+             rdfs:range xsd:decimal .
 
 
 ###  http://www.group02.org/pd/ontology/PedestriansMadrid#hasLongitude
 :hasLongitude rdf:type owl:DatatypeProperty ;
               rdfs:subPropertyOf owl:topDataProperty ;
               rdfs:domain :MeasurementPoint ;
-              rdfs:range xsd:float .
+              rdfs:range xsd:decimal .
 
 
 ###  http://www.group02.org/pd/ontology/PedestriansMadrid#hasNumber
 :hasNumber rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf owl:topDataProperty ;
            rdfs:domain :MeasurementPoint ;
-           rdfs:range xsd:decimal .
+           rdfs:range xsd:integer .
 
 
 ###  http://www.group02.org/pd/ontology/PedestriansMadrid#hasObservation
@@ -102,21 +102,14 @@
 :hasPedestrians rdf:type owl:DatatypeProperty ;
                 rdfs:subPropertyOf owl:topDataProperty ;
                 rdfs:domain :Measurement ;
-                rdfs:range xsd:decimal .
+                rdfs:range xsd:integer .
 
 
 ###  http://www.group02.org/pd/ontology/PedestriansMadrid#hasPostCode
 :hasPostCode rdf:type owl:DatatypeProperty ;
              rdfs:subPropertyOf owl:topDataProperty ;
              rdfs:domain :MeasurementPoint ;
-             rdfs:range xsd:decimal .
-
-
-###  http://www.group02.org/pd/ontology/PedestriansMadrid#id
-:id rdf:type owl:DatatypeProperty ;
-    rdfs:subPropertyOf owl:topDataProperty ;
-    rdfs:domain :MeasurementPoint ;
-    rdfs:range xsd:string .
+             rdfs:range xsd:integer .
 
 
 #################################################################
