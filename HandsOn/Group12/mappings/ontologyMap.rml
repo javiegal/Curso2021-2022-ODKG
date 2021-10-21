@@ -33,7 +33,7 @@
     rr:objectMap [
       rml:reference "CODIGO-POSTAL-INSTALACION";
       rr:datatype xsd:int
-      ]
+    ]
   ].
 
 
@@ -52,8 +52,8 @@
     rr:predicate ns:hasName;
     rr:objectMap [
       rml:reference "NOMBRE-INSTALACION";
-      rr:datatype xsd:anyURI
-      ]
+      rr:datatype xsd:string
+    ]
   ];
 
   rr:predicateObjectMap [
@@ -61,7 +61,7 @@
     rr:objectMap [
       rml:reference "URL-INSTALACION";
       rr:datatype xsd:anyURI
-      ]
+    ]
   ];
   
   rr:predicateObjectMap [
@@ -69,7 +69,7 @@
     rr:objectMap [
       rml:reference "ACCESIBILIDAD-INSTALACION";
       rr:datatype xsd:string
-      ]
+    ]
   ];
   
   rr:predicateObjectMap [
@@ -77,7 +77,7 @@
     rr:objectMap [
       rml:reference "URL-ACTIVIDAD";
       rr:datatype xsd:anyURI
-      ]
+    ]
   ];
 
   rr:predicateObjectMap [
@@ -85,19 +85,59 @@
     rr:objectMap [
       rml:reference "COORDINATES";
       rr:datatype xsd:string
-      ]
+    ]
   ];
 
   rr:predicateObjectMap [
-  rr:predicate ns:hasAddress;
-  rr:objectMap [
-    rr:parentTriplesMap <AddressMap>;
+    rr:predicate ns:hasAddress;
+    rr:objectMap [
+      rr:parentTriplesMap <AddressMap>;
     ];
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate ns:isLocatedAt;
+    rr:objectMap [
+      rr:parentTriplesMap <NeighborhoodMap>;
+    ]
   ].
 
-#  rr:predicateObjectMap [
-#  rr:predicate ns:isLocatedAt;
-#  rr:objectMap [
-#    rr:parentTriplesMap <Neighborhood>;
-#  ].
+<NeighborhoodMap> a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "./data/data-trimmed.csv" ;
+    rml:referenceFormulation ql:CSV 
+  ];
+  rr:subjectMap [
+    rr:template "https://data.eventsatmadrid.org/resource/neighborhood/{BARRIO-INSTALACION}";
+    rr:class ns:Neighborhood
+  ];
+  rr:predicateObjectMap [
+    rr:predicate ns:hasName;
+    rr:objectMap [
+      rml:reference "BARRIO-INSTALACION";
+      rr:datatype xsd:string
+    ]
+  ];
+  rr:predicateObjectMap [
+    rr:predicate ns:isInDistrict;
+    rr:objectMap [
+      rr:parentTriplesMap <DistrictMap>;
+    ]
+  ].
 
+<DistrictMap> a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "./data/data-trimmed.csv" ;
+    rml:referenceFormulation ql:CSV 
+  ];
+  rr:subjectMap [
+    rr:template "https://data.eventsatmadrid.org/resource/district/{DISTRITO-INSTALACION}";
+    rr:class ns:District
+  ];
+  rr:predicateObjectMap [
+    rr:predicate ns:hasName;
+    rr:objectMap [
+      rml:reference "DISTRITO-INSTALACION";
+      rr:datatype xsd:string
+    ]
+  ].
