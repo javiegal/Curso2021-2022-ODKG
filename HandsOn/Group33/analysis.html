@@ -277,7 +277,14 @@ table, th, td {
     <p>Ontological path:</p>
     <li>Class: http://e-scooter.com/ontology#{className}</li>
     <li>Property: http://e-scooter.com/ontology#{propertyName}</li>
-    <li>Individual: http://e-scooter.com/resource/{id}</li>
+    <li>Individuals: 
+      <ul>
+        <li>Trip: http://e-scooter.com/resource/trip/{id}</li>
+        <li>Community: http://e-scooter.com/resource/community/{AreaNumber}</li>
+        <li>Centroid: http://e-scooter.com/resource/centroid/CENT_{CentroidLatitude}%{CentroidLongitude}</li>
+        <li>Location: http://e-scooter.com/resource/location/{CentroidLatitude}_{CentroidLongitude}</li>
+      </ul>
+    </li>
 
     
   </ul>
