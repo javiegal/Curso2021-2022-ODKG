@@ -7,7 +7,7 @@ from rdflib.plugins.sparql import prepareQuery
 """Creamos un grafo vac�o"""
 
 g = Graph()
-g.parse("C:/Users/morot/OneDrive - Universidad de Castilla-La Mancha/Master/Open data and graphs/Ejercicios/git/Curso2021-2022-ODKG/HandsOn/Group12/csv/data.ttl", format="ntriples")
+g.parse("data.nt", format="ntriples")
 
 #for subj, pred, obj in g:
 #  print(subj,pred,obj)
