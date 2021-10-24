@@ -115,13 +115,13 @@ SELECT ?subject ?property ?object
 WHERE {
     {
         ?individual rdf:type ns:Person.
-        ?individual ?propertie ?object
+        ?individual ?property ?object
     }
     UNION
     {
         ?subclasses rdfs:subClassOf ns:Person.
         ?individual rdf:type ?subclasses.
-        ?individual ?propertie ?object
+        ?individual ?property ?object
     }
 }
 ''',
