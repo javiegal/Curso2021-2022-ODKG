@@ -14,6 +14,7 @@ g.parse("data-with-links.nt", format="ntriples")
 
 NS = Namespace("https://data.eventsatmadrid.org/ontology#")
 RDFS = Namespace("http://www.w3.org/2000/01/rdf-schema#")
+OWL = Namespace("http://www.w3.org/2002/07/owl#")
 
 #All the facilities
 q1 = prepareQuery('''
@@ -183,4 +184,35 @@ SELECT ?Facility ?freeEvents {
 )
 
 for r in g.query(q11):
+  print(r)
+
+#Get all neighborhoods in district Centro with their wikidata links
+q12 = prepareQuery('''
+  SELECT DISTINCT ?NeighborhoodName ?wikidata_link
+  WHERE {
+    ?Neighborhood owl:sameAs ?wikidata_link .
+    ?Neighborhood rdfs:label ?NeighborhoodName .
+    ?Neighborhood ns:isInDistrict ?District .
+    ?District rdfs:label "Centro"
+  }
+  ''',
+  initNs = { "ns": NS, "owl": OWL }
+)
+
+for r in g.query(q12):
+  print(r)
+
+#Get all districts that can be found in the local data file with their wikidata links
+q13 = prepareQuery('''
+  SELECT DISTINCT ?DistrictName ?wikidata_link
+  WHERE {
+    ?District owl:sameAs ?wikidata_link .
+    ?District rdfs:label ?DistrictName .
+    ?District rdf:type ns:District 
+  }
+  ''',
+  initNs = { "ns": NS, "owl": OWL }
+)
+
+for r in g.query(q13):
   print(r)
