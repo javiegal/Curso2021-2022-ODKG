@@ -4,7 +4,7 @@
 from rdflib import Graph, Namespace, Literal
 from rdflib.plugins.sparql import prepareQuery
 
-"""Creamos un grafo vac�o"""
+"""Creamos un grafo vacío"""
 
 g = Graph()
 g.parse("data-with-links.nt", format="ntriples")
@@ -13,7 +13,7 @@ g.parse("data-with-links.nt", format="ntriples")
 #  print(subj,pred,obj)
 
 NS = Namespace("https://data.eventsatmadrid.org/ontology#")
-W3 = Namespace("http://www.w3.org/2000/01/rdf-schema#")
+RDFS = Namespace("http://www.w3.org/2000/01/rdf-schema#")
 
 #All the facilities
 q1 = prepareQuery('''
@@ -45,10 +45,10 @@ q3 = prepareQuery('''
     ?Events ns:isHeldIn ?Facility .
     ?Facility ns:isLocatedAt ?Neighborhood .
     ?Neighborhood ns:isInDistrict ?District .
-    ?District w:label "Latina"
+    ?District rdfs:label "Latina"
     }
   ''',
-  initNs = { "ns": NS, "w": W3}
+  initNs = { "ns": NS, "rdfs": RDFS}
 )
 
 for r in g.query(q3):
@@ -58,9 +58,9 @@ for r in g.query(q3):
 q4 = prepareQuery('''
   SELECT distinct ?Events WHERE { 
     ?Events ns:isHeldIn ?Facility .
-    ?Facility w:label "Teatro Circo Price"}
+    ?Facility rdfs:label "Teatro Circo Price"}
   ''',
-  initNs = { "ns": NS, "w": W3}
+  initNs = { "ns": NS, "rdfs": RDFS}
 )
 
 for r in g.query(q4):
@@ -72,9 +72,9 @@ q5 = prepareQuery('''
     ?Events ns:hasPrice "Gratuito" .
     ?Events ns:isHeldIn ?Facility .
     ?Facility ns:isLocatedAt ?Neighborhood .
-    ?Neighborhood w:label "Barrio de Puerta del Ángel"}
+    ?Neighborhood rdfs:label "Barrio de Puerta del Ángel"}
   ''',
-  initNs = { "ns": NS, "w": W3}
+  initNs = { "ns": NS, "rdfs": RDFS}
 )
 
 for r in g.query(q5):
