@@ -77,7 +77,7 @@ map:om_012 a rr:ObjectMap;
     rr:parentTriplesMap map:map_TriplesMap3_000;
     rr:joinCondition map:jc_001.
 map:om_013 a rr:ObjectMap;
-    rr:constant "https://dbpedia.org/ontology/Street";
+    rr:constant "http://www.group02.org/pd/ontology/PedestriansMadrid#Street";
     rr:termType rr:IRI.
 map:om_014 a rr:ObjectMap;
     rml:reference "same_as_wikidata_street";
@@ -89,7 +89,7 @@ map:om_016 a rr:ObjectMap;
     rr:parentTriplesMap map:map_TriplesMap4_000;
     rr:joinCondition map:jc_002.
 map:om_017 a rr:ObjectMap;
-    rr:constant "http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Distrito";
+    rr:constant "http://www.group02.org/pd/ontology/PedestriansMadrid#District";
     rr:termType rr:IRI.
 map:om_018 a rr:ObjectMap;
     rml:reference "District Number";
