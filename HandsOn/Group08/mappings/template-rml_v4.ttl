@@ -20,13 +20,15 @@
   rr:predicateObjectMap [
     rr:predicate vocab:hasOwner;
     rr:objectMap [
-      rr:parentTriplesMap <#TriplesMap2>;
+      rr:template "http://pharmacies.odkg.es/group08/resource/Owner/{titular_nombre_id}";
+      rr:termType rr:IRI; rr:class vocab:Owner
     ]
   ];
   rr:predicateObjectMap [
     rr:predicate vocab:hasAddress;
     rr:objectMap [
-      rr:parentTriplesMap <#TriplesMap3>;
+      rr:template "http://pharmacies.odkg.es/group08/resource/Address/{direccion_vial_id}";
+      rr:termType rr:IRI; rr:class vocab:Address
     ]
   ]
 .
@@ -46,7 +48,7 @@
       rml:reference "titular_nombre";
       rr:datatype xsd:string
     ]
-  ];
+  ]
 .
 
 <#TriplesMap3> a rr:TriplesMap;
@@ -68,13 +70,15 @@
   rr:predicateObjectMap [
     rr:predicate vocab:hasStreet;
     rr:objectMap [
-      rr:parentTriplesMap <#TriplesMap4>;
+      rr:template "http://dbpedia.org/ontology/Street/{direccion_vial_nombre_id}";
+      rr:termType rr:IRI; rr:class dbpedia:Street
     ];
   ];
   rr:predicateObjectMap [
     rr:predicate vocab:hasMunicipality;
     rr:objectMap [
-      rr:parentTriplesMap <#TriplesMap5>;
+      rr:template "http://dbpedia.org/ontology/Municipality/{municipio_nombre_id}";
+      rr:termType rr:IRI; rr:class dbpedia:Municipality
     ];
   ];
   rr:predicateObjectMap [
