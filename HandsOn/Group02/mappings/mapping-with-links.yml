@@ -54,12 +54,12 @@ mappings:
 
     TriplesMap3:
         sources:
-        - [STREETS-updated.csv~csv]
+        - [STREETS-updated-with-links.csv~csv]
         s: http://group02.org/pd/resource/Street/$(Street short name)
         po:
         - [a, vocab:Street]
+        - [owl:sameAs, $(same_as_wikidata_street)~iri]
         - [rdfs:label, $(Street full name)]
-        - [owl:sameAs, $(sames_as_wikidata_district)~iri]
         - p: vocab:hasDistrict
           o:
           - mapping: TriplesMap4
@@ -71,10 +71,10 @@ mappings:
 
     TriplesMap4:
         sources:
-        - [DISTRICTS-updated.csv~csv]
+        - [DISTRICTS-updated-with-links.csv~csv]
         s: http://group02.org/pd/resource/District/$(District full name)
         po:
         - [a, vocab:District]
         - [vocab:hasDistrictNumber, $(District Number), xsd:integer]
+        - [owl:sameAs, $(same_as_wikidata_district)~iri]
         - [rdfs:label, $(District full name)]
-        - [owl:sameAs, $(sames_as_wikidata_street)~iri]

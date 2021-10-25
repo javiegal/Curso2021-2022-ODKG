@@ -80,11 +80,11 @@ map:om_013 a rr:ObjectMap;
     rr:constant "http://www.group02.org/pd/ontology/PedestriansMadrid#Street";
     rr:termType rr:IRI.
 map:om_014 a rr:ObjectMap;
+    rml:reference "same_as_wikidata_street";
+    rr:termType rr:IRI.
+map:om_015 a rr:ObjectMap;
     rml:reference "Street full name";
     rr:termType rr:Literal.
-map:om_015 a rr:ObjectMap;
-    rml:reference "sames_as_wikidata_district";
-    rr:termType rr:IRI.
 map:om_016 a rr:ObjectMap;
     rr:parentTriplesMap map:map_TriplesMap4_000;
     rr:joinCondition map:jc_002.
@@ -96,11 +96,11 @@ map:om_018 a rr:ObjectMap;
     rr:termType rr:Literal;
     rr:datatype <http://www.w3.org/2001/XMLSchema#integer>.
 map:om_019 a rr:ObjectMap;
+    rml:reference "same_as_wikidata_district";
+    rr:termType rr:IRI.
+map:om_020 a rr:ObjectMap;
     rml:reference "District full name";
     rr:termType rr:Literal.
-map:om_020 a rr:ObjectMap;
-    rml:reference "sames_as_wikidata_street";
-    rr:termType rr:IRI.
 map:pm_000 a rr:PredicateMap;
     rr:constant rdf:type.
 map:pm_001 a rr:PredicateMap;
@@ -130,9 +130,9 @@ map:pm_012 a rr:PredicateMap;
 map:pm_013 a rr:PredicateMap;
     rr:constant rdf:type.
 map:pm_014 a rr:PredicateMap;
-    rr:constant rdfs:label.
-map:pm_015 a rr:PredicateMap;
     rr:constant <http://www.w3.org/2002/07/owl#sameAs>.
+map:pm_015 a rr:PredicateMap;
+    rr:constant rdfs:label.
 map:pm_016 a rr:PredicateMap;
     rr:constant <http://www.group02.org/pd/ontology/PedestriansMadrid#hasDistrict>.
 map:pm_017 a rr:PredicateMap;
@@ -140,9 +140,9 @@ map:pm_017 a rr:PredicateMap;
 map:pm_018 a rr:PredicateMap;
     rr:constant <http://www.group02.org/pd/ontology/PedestriansMadrid#hasDistrictNumber>.
 map:pm_019 a rr:PredicateMap;
-    rr:constant rdfs:label.
-map:pm_020 a rr:PredicateMap;
     rr:constant <http://www.w3.org/2002/07/owl#sameAs>.
+map:pm_020 a rr:PredicateMap;
+    rr:constant rdfs:label.
 map:pom_000 a rr:PredicateObjectMap;
     rr:predicateMap map:pm_000;
     rr:objectMap map:om_000.
@@ -223,8 +223,8 @@ map:source_001 a rml:LogicalSource;
     rml:source "MEASUREMENT_POINTS-updated.csv";
     rml:referenceFormulation ql:CSV.
 map:source_002 a rml:LogicalSource;
-    rml:source "STREETS-updated.csv";
+    rml:source "STREETS-updated-with-links.csv";
     rml:referenceFormulation ql:CSV.
 map:source_003 a rml:LogicalSource;
-    rml:source "DISTRICTS-updated.csv";
+    rml:source "DISTRICTS-updated-with-links.csv";
     rml:referenceFormulation ql:CSV.
