@@ -61,8 +61,11 @@ ns = Namespace("http://somewhere#")
 
 # RDFLib
 print('RDFLib')
-for s,p,o in g.triples((None, None, ns.Person)):
+for s,p,o in g.triples((None, RDF.type, ns.Person)):
   print(s, p )
+for s,p,o in g.triples((None, RDFS.subClassOf, ns.Person)):
+    for s1, p1, o1 in g. triples((None, RDF.type,s))):  
+        print(s1, p1 )
 
 ########################
 # SPARQL  
@@ -70,10 +73,16 @@ from rdflib.plugins.sparql import prepareQuery
 
 q1 = prepareQuery('''
   SELECT ?Subject ?subClass WHERE { 
-    ?Subject ?subClass  NS:Person. 
+    ?Subject ?rdf:type  NS:Person. 
+  }
+  UNION
+  {
+    ?Subject1 rdfs:subClassOf NS:Person.
+    ?Subject rdf:type ?Subject1
+    
   }
   ''',
-  initNs = {"NS": ns}
+  initNs = {"NS": ns, "rdfs": RDFS, "rdf":RDF}
 )
 
 
