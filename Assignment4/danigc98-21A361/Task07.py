@@ -1,6 +1,12 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# In[1]:
+
+
+#!/usr/bin/env python
+# coding: utf-8
+
 # **Task 07: Querying RDF(s)**
 
 # In[1]:
@@ -23,13 +29,12 @@ g.namespace_manager.bind('vcard', Namespace("http://www.w3.org/2001/vcard-rdf/3.
 g.parse(github_storage+"/rdf/example6.rdf", format="xml")
 
 
+# In[9]:
+
+
 # **TASK 7.1: List all subclasses of "Person" with RDFLib and SPARQL**
 
-# In[7]:
-
-
-# TO DO
-# Visualize the results
+print('  ----------------------------------SPARQL-------------------------------')
 from rdflib.plugins.sparql import prepareQuery
 from rdflib.namespace import RDF, RDFS
 
@@ -45,15 +50,19 @@ for r in g.query(q1):
  print(r)
 
 
-# **TASK 7.2: List all individuals of "Person" with RDFLib and SPARQL (remember the subClasses)**
-# 
+print(' ---------------------------------RDFLIB---------------------------------')
+
+
+for subclass, pred, p in g.triples((None, RDFS.subClassOf, ns.Person)):
+    print(subclass)
+
 
 # In[12]:
 
 
-# TO DO
-# Visualize the results
+# **TASK 7.2: List all individuals of "Person" with RDFLib and SPARQL (remember the subClasses)**
 
+print('  ----------------------------------SPARQL-------------------------------')
 q2 = prepareQuery('''
   SELECT ?person WHERE { 
     ?subclass rdfs:subClassOf* ns:Person.
@@ -66,14 +75,21 @@ for r in g.query(q2):
  print(r)
 
 
+print(' ---------------------------------RDFLIB---------------------------------')
+
+for person, rel, p in g.triples((None, RDF.type, ns.Person)):
+    print(person)
+for subclass, pred, p in g.triples((None, RDFS.subClassOf, ns.Person)):
+    for person, rel, s in g.triples((None, RDF.type, subclass)):
+        print(person)
+
+
+# In[15]:
+
+
 # **TASK 7.3: List all individuals of "Person" and all their properties including their class with RDFLib and SPARQL**
 # 
-
-# In[14]:
-
-
-# TO DO
-# Visualize the results
+print('  ----------------------------------SPARQL-------------------------------')
 
 q3 = prepareQuery('''
   SELECT ?person ?predicate ?value WHERE { 
@@ -86,6 +102,17 @@ q3 = prepareQuery('''
 )
 for r in g.query(q3):
  print(r)
+
+
+print(' ---------------------------------RDFLIB---------------------------------')
+for person, rel, p in g.triples((None, RDF.type, ns.Person)):
+    for pers, pred, val in g.triples((person, None, None)):
+        print((pers, pred, val))
+        
+for subclass, pred, p in g.triples((None, RDFS.subClassOf, ns.Person)):
+    for person, rel, s in g.triples((None, RDF.type, subclass)):
+        for pers, pred, val in g.triples((person, None, None)):
+            print((pers, pred, val))
 
 
 # In[ ]:
