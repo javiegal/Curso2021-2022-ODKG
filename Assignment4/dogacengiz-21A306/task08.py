@@ -24,20 +24,18 @@ from rdflib.namespace import RDF, RDFS
 
 VCARD = Namespace("http://www.w3.org/2001/vcard-rdf/3.0#")
 ns = Namespace("http://data.org#")
-for s, p, o in g1.triples((None, RDF.type, ns.Person)):
-  for a, b, c in g1.triples((s, None, None)):
-    print(a, b, c)
-
-for s, p, o in g2.triples((None, RDF.type, ns.Person)):
-  for a, b, c in g2.triples((s, None, None)):
-    print(a, b, c)
 
 for s, p, o in g1.triples((None, RDF.type, ns.Person)):
-  for a, b, c in g2.triples((s, None, None)):
-    g1.add((s, b, c ))
+  givenName = g2.value(s, VCARD.Given, None)
+  if givenName:
+    g1.add((s, VCARD.Given, givenName))
 
-for s, p, o in g1.triples((None, RDF.type, ns.Person)):
-  for a, b, c in g1.triples((s, None, None)):
-    print(a, b, c)
+  familyName = g2.value(s, VCARD.Family, None)
+  if familyName:
+    g1.add((s, VCARD.Family, familyName))
+
+  email = g2.value(s, VCARD.EMAIL, None)
+  if email:
+    g1.add((s, VCARD.EMAIL, email))
 
 print(g1.serialize(format="ttl"))
