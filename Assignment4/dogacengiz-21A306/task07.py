@@ -40,6 +40,18 @@ q1 = prepareQuery('''
 
 for r in g.query(q1):
     print(r)
+    
+#with RDFLib
+list = []
+def allSubClasses(r):
+  for s,p,o in g.triples((None, RDFS.subClassOf, r)):
+    list.append(s)
+    allSubClasses(s)
+    return list
+
+subclasses = allSubClasses(NS.Person)
+
+print(subclasses)
 
 """**TASK 7.2: List all individuals of "Person" with RDFLib and SPARQL (remember the subClasses)**
 
@@ -56,6 +68,14 @@ q2 = prepareQuery('''
 # Visualize the results
 for r in g.query(q2):
     print(r)
+    
+#with RDFLib
+subclasses.append(NS.Person)
+individuals = []
+for i in subclasses:
+  for s,p,o in g.triples((None, RDF.type, i)):
+    individuals.append(s)
+print(individuals)
 
 """**TASK 7.3: List all individuals of "Person" and all their properties including their class with RDFLib and SPARQL**
 
@@ -73,3 +93,8 @@ q3 = prepareQuery('''
 # Visualize the results
 for r in g.query(q3):
     print(r)
+    
+#with RDFLib
+for i in individuals:
+  for s,p,o in g.triples((i, None, None)):
+    print(s,p,o)
