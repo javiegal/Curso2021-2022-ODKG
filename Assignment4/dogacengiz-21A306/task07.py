@@ -21,8 +21,8 @@ g.namespace_manager.bind('ns', Namespace("http://somewhere#"), override=False)
 g.namespace_manager.bind('vcard', Namespace("http://www.w3.org/2001/vcard-rdf/3.0#"), override=False)
 g.parse(github_storage+"/rdf/example6.rdf", format="xml")
 
-"""**TASK 7.1: List all subclasses of "Person" with RDFLib and SPARQL**"""
 
+print("TASK 7.1: List all subclasses of Person with SPARQL")
 # TO DO
 
 from rdflib.plugins.sparql import prepareQuery
@@ -39,8 +39,9 @@ q1 = prepareQuery('''
 # Visualize the results
 
 for r in g.query(q1):
-    print(r)
-    
+    print(r.Subclass)
+
+print("TASK 7.1: List all subclasses of Person with RDFLib")
 #with RDFLib
 list = []
 def allSubClasses(r):
@@ -51,11 +52,10 @@ def allSubClasses(r):
 
 subclasses = allSubClasses(NS.Person)
 
-print(subclasses)
+for s in subclasses:
+  print(s)
 
-"""**TASK 7.2: List all individuals of "Person" with RDFLib and SPARQL (remember the subClasses)**
-
-"""
+print("TASK 7.2: List all individuals of Person with SPARQL (remember the subClasses)")
 
 # TO DO
 q2 = prepareQuery('''
@@ -67,19 +67,23 @@ q2 = prepareQuery('''
 )
 # Visualize the results
 for r in g.query(q2):
-    print(r)
+    print(r.individuals)
     
+ 
+print("TASK 7.2: List all individuals of Person with RDFLib (remember the subClasses)")
 #with RDFLib
 subclasses.append(NS.Person)
 individuals = []
 for i in subclasses:
   for s,p,o in g.triples((None, RDF.type, i)):
     individuals.append(s)
-print(individuals)
 
-"""**TASK 7.3: List all individuals of "Person" and all their properties including their class with RDFLib and SPARQL**
+for s in individuals:    
+  print(s)
 
-"""
+
+
+print("TASK 7.3: List all individuals of Person and all their properties including their class with SPARQL")
 
 # TO DO
 q3 = prepareQuery('''
@@ -92,9 +96,12 @@ q3 = prepareQuery('''
 )
 # Visualize the results
 for r in g.query(q3):
-    print(r)
-    
+    print(r.individuals, r.p, r.o)
+
+print("TASK 7.3: List all individuals of Person and all their properties including their class with RDFLib")
+
 #with RDFLib
 for i in individuals:
   for s,p,o in g.triples((i, None, None)):
     print(s,p,o)
+    
