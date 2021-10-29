@@ -31,7 +31,7 @@ NS = Namespace("http://somewhere#")
  
 q1 = prepareQuery('''
   SELECT ?Subclass WHERE{
-    ?Subclass rdfs:subClassOf ns:Person
+    ?Subclass rdfs:subClassOf+ ns:Person
   }
   ''',
   initNs = { "ns": NS}
@@ -85,7 +85,7 @@ print(individuals)
 q3 = prepareQuery('''
   SELECT ?individuals ?p ?o WHERE{
     ?individuals rdf:type/rdfs:subClassOf* ns:Person.
-    ?individualas ?p ?o
+    ?individuals ?p ?o
   }
   ''',
   initNs = {"ns": NS}
