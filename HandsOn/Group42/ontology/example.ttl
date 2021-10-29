@@ -1,0 +1,48 @@
+@prefix : http://bicycleaccidents.org/ontology# .
+@rel : http://bicycleaccidents.org/ontology/relationship/ .
+@base http://bicycleaccidents.org/ontology .
+
+#########################################################
+# Example 1
+#########################################################
+
+:2021S000047 a :Accident;
+  rel:hasWeather "Despejado";
+  rel:hasAccidentType "Caida";
+  rel:hasDate "2021-01-01T11:38:00";
+  rel:happenedInStreet :CALLE_MAYOR;
+  rel:happenedInDistrict :CENTRO;
+  rel:hasAge "45-49";
+  rel:hasSex "Hombre";
+  rel:hasInjury "2";
+  rel:hasPositiveAlcoholTest "N";
+  rel:hasNumber "1";
+  rel:hasVehicleType "Bicicleta";
+  rel:hasPersonType "Conductor".
+
+:CALLE_MAYOR a :Street.
+
+:CENTRO a :District.
+
+
+#########################################################
+# Example 2
+#########################################################
+:2020S004545 a :Accident;
+  rel:hasWeather "Despejado";
+  rel:hasAccidentType "Caida";
+  rel:hasDate "2020-02-26T13:12:00";
+  rel:happenedInStreet :GRAN_VIA;
+  rel:happenedInDistrict :CENTRO;
+  rel:hasAge "25-29";
+  rel:hasSex "Hombre";
+  rel:hasInjury "5";
+  rel:hasPositiveAlcoholTest "N";
+  rel:hasNumber "1";
+  rel:hasVehicleType "Bicicleta";
+  rel:hasPersonType "Conductor".
+
+
+:GRAN_VIA a :Street.
+
+:CENTRO a :District.
