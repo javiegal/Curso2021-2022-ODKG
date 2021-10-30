@@ -6,8 +6,8 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @base <http://www.group02.org/pd/ontology/PedestriansMadrid#> .
 
-<http://www.group02.org/pd/ontology/PedestriansMadrid> rdf:type owl:Ontology ;
-                                                        owl:versionIRI <http://www.group02.org/pd/ontology/PedestriansMadrid> .
+<http://www.group02.org/pd/ontology/PedestriansMadrid#> rdf:type owl:Ontology ;
+                                                        owl:versionIRI <http://www.group02.org/pd/ontology/PedestriansMadrid#> .
 
 #################################################################
 #    Object Properties
