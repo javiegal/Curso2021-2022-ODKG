@@ -247,7 +247,7 @@ print(kgtk("""
 
 print("\nRetrieve all the family of Schwarzenegger (child/father/mother/sibling/spouse relationships)")
 print(kgtk("""
-    reachable-nodes --debug -i all
+    reachable-nodes -i all
         --root Q2685
         --props P40 P3373 P26 P22 P25
         --label Pextended_family
@@ -263,7 +263,7 @@ kgtk("""
     --page-rank-property P_pagerank
     --output-pagerank True
     --output-statistics-only
-    --output-hits False 
+    --output-hits False
     --undirected True
     --log-file /tmp/projects/assignment/metadata.pagerank.undirected.summary.txt
 """)
