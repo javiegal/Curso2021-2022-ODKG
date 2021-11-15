@@ -1,0 +1,200 @@
+[
+  {
+    "op": "core/column-removal",
+    "columnName": "Column",
+    "description": "Remove column Column"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "positiva_droga",
+    "description": "Remove column positiva_droga"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "coordenada_y_utm",
+    "description": "Remove column coordenada_y_utm"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "coordenada_x_utm",
+    "description": "Remove column coordenada_x_utm"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "fecha",
+    "expression": "join ([coalesce(cells['fecha'].value,''),coalesce(cells['hora'].value,'')],' ')",
+    "onError": "keep-original",
+    "newColumnName": "DateTime",
+    "columnInsertIndex": 2,
+    "description": "Create column DateTime at index 2 based on column fecha using expression join ([coalesce(cells['fecha'].value,''),coalesce(cells['hora'].value,'')],' ')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DateTime",
+    "expression": "value.toDate()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column DateTime using expression value.toDate()"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "fecha",
+    "description": "Remove column fecha"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "hora",
+    "description": "Remove column hora"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "localizacion",
+    "expression": "grel:value.split(',')[0]",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column localizacion using expression grel:value.split(',')[0]"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "lesividad",
+    "expression": "grel:if(value==null,\"0\",value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column lesividad using expression grel:if(value==null,\"0\",value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "lesividad",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column lesividad using expression value.toNumber()"
+  },
+  {
+    "op": "core/row-reorder",
+    "mode": "row-based",
+    "sorting": {
+      "criteria": [
+        {
+          "valueType": "string",
+          "column": "num_expediente",
+          "blankPosition": 2,
+          "errorPosition": 1,
+          "reverse": false,
+          "caseSensitive": false
+        }
+      ]
+    },
+    "description": "Reorder rows"
+  },
+  {
+    "op": "core/blank-down",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "num_expediente",
+    "description": "Blank down cells in column num_expediente"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "num_expediente",
+          "expression": "isBlank(value)",
+          "columnName": "num_expediente",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "localizacion",
+    "expression": "jython:return value.replace(\".\",\"\").replace(\"/\",\"\").replace(\" \",\"_\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column localizacion using expression jython:return value.replace(\".\",\"\").replace(\"/\",\"\").replace(\" \",\"_\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "distrito",
+    "expression": "jython:return value.replace(\".\",\"\").replace(\"/\",\"\").replace(\" \",\"_\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column distrito using expression jython:return value.replace(\".\",\"\").replace(\"/\",\"\").replace(\" \",\"_\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "text",
+          "name": "localizacion",
+          "columnName": "localizacion",
+          "query": "'",
+          "mode": "text",
+          "caseSensitive": false,
+          "invert": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "localizacion",
+    "expression": "jython:return value.replace('\\'', '_')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column localizacion using expression jython:return value.replace('\\'', '_')"
+  }
+]

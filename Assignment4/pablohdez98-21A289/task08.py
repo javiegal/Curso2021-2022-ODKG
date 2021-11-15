@@ -9,7 +9,7 @@ Original file is located at
 **Task 08: Completing missing data**
 """
 
-!pip install rdflib
+# !pip install rdflib
 github_storage = "https://raw.githubusercontent.com/FacultadInformatica-LinkedData/Curso2021-2022/master/Assignment4/course_materials"
 
 from rdflib import Graph, Namespace, Literal, URIRef
@@ -26,7 +26,16 @@ NS = Namespace("http://data.org#")
 VCARD = Namespace("http://www.w3.org/2001/vcard-rdf/3.0#")
 
 for s1, p1, o1 in g1.triples((None, RDF.type, NS.Person)):
-  for s2, p2, o2 in g2.triples((s1, None, None)):
-    g1.add((s1, p2, o2))
+  givenName = g2.value(subject=s1, predicate=VCARD.Given, object=None)
+  if givenName:
+    g1.add((s1, VCARD.Given, givenName))
+
+  familyName = g2.value(subject=s1, predicate=VCARD.Family, object=None)
+  if familyName:
+    g1.add((s1, VCARD.Family, familyName))
+
+  email = g2.value(subject=s1, predicate=VCARD.EMAIL, object=None)
+  if email:
+    g1.add((s1, VCARD.EMAIL, email))
 
 print(g1.serialize(format="ttl"))

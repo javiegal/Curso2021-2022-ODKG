@@ -9,7 +9,7 @@ Original file is located at
 **Task 06: Modifying RDF(s)**
 """
 
-!pip install rdflib 
+# !pip install rdflib 
 github_storage = "https://raw.githubusercontent.com/FacultadInformatica-LinkedData/Curso2021-2022/master/Assignment4/course_materials"
 
 """Leemos el fichero RDF de la forma que lo hemos venido haciendo"""
@@ -25,13 +25,12 @@ g.parse(github_storage+"/rdf/example5.rdf", format="xml")
 
 ns = Namespace("http://somewhere#")
 g.add((ns.Researcher, RDF.type, RDFS.Class))
-for s, p, o in g:
+for s,p,o in g:
   print(s,p,o)
 
-"""**TASK 6.1: Create a new class named "University"**
+"""**TASK 6.1: Create a new class named "University"**"""
 
-"""
-
+print('**TASK 6.1: Create a new class named "University"**')
 # TO DO
 g.add((ns.University, RDF.type, RDFS.Class))
 # Visualize the results
@@ -40,6 +39,7 @@ for s, p, o in g:
 
 """**TASK 6.2: Add "Researcher" as a subclass of "Person"**"""
 
+print('**TASK 6.2: Add "Researcher" as a subclass of "Person"**')
 # TO DO
 g.add((ns.Researcher, RDFS.subClassOf, ns.Person))
 # Visualize the results
@@ -48,14 +48,16 @@ for s, p, o in g:
 
 """**TASK 6.3: Create a new individual of Researcher named "Jane Smith"**"""
 
+print('**TASK 6.3: Create a new individual of Researcher named "Jane Smith"**')
 # TO DO
 g.add((ns.JaneSmith, RDF.type, ns.Researcher))
 # Visualize the results
-for s, p, o in g:
+for s,p,o in g:
   print(s,p,o)
 
 """**TASK 6.4: Add to the individual JaneSmith the fullName, given and family names**"""
 
+print('**TASK 6.4: Add to the individual JaneSmith the fullName, given and family names**')
 # TO DO
 from rdflib import XSD
 
@@ -69,6 +71,7 @@ for s, p, o in g.triples((ns.JaneSmith, None, None)):
 
 """**TASK 6.5: Add UPM as the university where John Smith works**"""
 
+print('**TASK 6.5: Add UPM as the university where John Smith works**')
 # TO DO
 g.add((ns.UPM, RDF.type, ns.University))
 g.add((ns.JohnSmith, VCARD.WorksAt, ns.UPM))
