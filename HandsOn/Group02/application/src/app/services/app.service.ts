@@ -31,8 +31,6 @@ export class AppService {
     } else {
       query += '}LIMIT 10'
     }
-
-    console.log(query)
     return this.http.get<any>(`/api/sparql?query=${encodeURIComponent(query)}`)
   }
 }
