@@ -54,15 +54,19 @@
           <th>Observation</th>
           <th>Date</th>
           <th>Pedestrians</th>
+          <th>District</th>
+          <th>Location</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let measure of data, let i = index">
           <td>{{i+1}}</td>
-          <td>{{measure.label.value}}</td>
+          <td> <a href={{measure.stWikidata.value}}> {{measure.streetLabel.value}} </a> </td>
           <td>{{measure.observation.value}}</td>
           <td>{{measure.date.value}}</td>
           <td>{{measure.pedestrians.value}}</td>
+          <td> <a href={{measure.dsWikidata.value}}> {{measure.districtLabel.value}} </a> </td>
+          <td> <a href="https://maps.google.com/maps?q={{measure.latitude.value}},{{measure.longitude.value}}"> Google Maps </a> </td>
         </tr>
       </tbody>
     </table>

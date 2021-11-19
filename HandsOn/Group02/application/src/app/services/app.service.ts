@@ -9,13 +9,19 @@ export class AppService {
   ont = "http://www.group02.org/pd/ontology/PedestriansMadrid#";
   rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
   res = "http://group02.org/pd/resource/Street/";
+  owl = "http://www.w3.org/2002/07/owl#";
   rdfs = "http://www.w3.org/2000/01/rdf-schema#";
   query = "PREFIX ont: <" + this.ont + ">\nPREFIX rdf: <" + this.rdf + ">\nPREFIX res: <" + this.res +
-          ">\nPREFIX rdfs: <" + this.rdfs + ">\nSELECT ?label ?observation ?date ?pedestrians WHERE {\n" +
+          ">\nPREFIX rdfs: <" + this.rdfs + ">\nPREFIX owl: <" + this.owl + ">\nSELECT ?streetLabel ?observation ?date ?pedestrians ?districtLabel ?latitude ?longitude ?stWikidata ?dsWikidata WHERE {\n" +
           "?measurement a ont:Measurement.\n?measurement ont:hasPedestrians ?pedestrians.\n" +
           "?measurement ont:isLocated ?measurement_point.\n?measurement ont:hasDate ?date.\n" +
-          "?measurement_point ont:hasStreet ?street.\n?street rdfs:label ?label.\n" +
-          "?measurement_point ont:hasObservation ?observation.\n";
+          "?measurement_point ont:hasStreet ?street.\n?street rdfs:label ?streetLabel.\n" +
+          "?measurement_point ont:hasObservation ?observation.\n" +
+          "?street ont:hasDistrict ?district.\n ?district rdfs:label ?districtLabel.\n" +
+          "?measurement_point ont:hasLatitude ?latitude.\n" +
+          "?measurement_point ont:hasLongitude ?longitude.\n" +
+          "?street owl:sameAs ?stWikidata.\n" + "FILTER regex(str(?stWikidata), \"wikidata\").\n" +
+          "?district owl:sameAs ?dsWikidata.\n" + "FILTER regex(str(?dsWikidata), \"wikidata\").\n" ;
 
   constructor(private http: HttpClient) { }
 
